@@ -1,0 +1,67 @@
+package tech.leonam.resultadodocertame.view;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+
+import java.util.ArrayList;
+
+import tech.leonam.resultadodocertame.R;
+import tech.leonam.resultadodocertame.controller.ControleDeTurma;
+import tech.leonam.resultadodocertame.model.entidade.AlunoEntidade;
+import tech.leonam.resultadodocertame.model.entidade.TurmaEntidade;
+
+public class AlunosView extends AppCompatActivity {
+    private String nomeDaClasse;
+    private EditText nomesAlunos;
+    private Button criarTurma;
+    private AdView ads;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_alunos_view);
+        nomeDaClasse = getIntent().getStringExtra("nomeDaClasse");
+        iniciarComponentes();
+        iniciarAds();
+        clickBotao();
+    }
+    public void iniciarComponentes(){
+        nomesAlunos = findViewById(R.id.nomeTurmaCriarTurma);
+        criarTurma = findViewById(R.id.botaoCriarTurma);
+        ads = findViewById(R.id.adCriarTurma);
+    }
+    public void iniciarAds(){
+        MobileAds.initialize(this, initializationStatus -> {});
+        var request = new AdRequest.Builder().build();
+        ads.loadAd(request);
+    }
+    public void clickBotao(){
+        var nomeAlunos = nomesAlunos.getText().toString();
+        var alunos = nomeAlunos.split(";");
+
+        var lista = new ArrayList<AlunoEntidade>();
+
+        for (var aluno : alunos) {
+            var entidadeAluno = new AlunoEntidade();
+            entidadeAluno.setNome(aluno);
+            lista.add(entidadeAluno);
+        }
+        var turmaEntidade = new TurmaEntidade(lista,nomeDaClasse);
+
+        if(ControleDeTurma.cadastre(turmaEntidade,this)) {
+            var intencao = new Intent(this, MainActivity.class);
+            Toast.makeText(this, R.string.classe_criada_com_sucesso, Toast.LENGTH_SHORT).show();
+            intencao.putExtra("nomeDaClasse", nomeDaClasse);
+            startActivity(intencao);
+        }
+        Toast.makeText(this, R.string.infelizmente_a_classe_n_o_foi_criada, Toast.LENGTH_SHORT).show();
+    }
+}

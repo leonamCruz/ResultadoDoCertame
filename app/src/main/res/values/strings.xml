@@ -4,4 +4,8 @@
     <string name="vazio" />
     <string name="nome_da_turma">Nome da Turma</string>
     <string name="criar_turma">Criar Turma</string>
+    <string name="separe_os_alunos_com">Separe os alunos com ;</string>
+    <string name="adicionar_alunos">Adicionar Alunos</string>
+    <string name="infelizmente_a_classe_n_o_foi_criada">Infelizmente a classe não foi criada.</string>
+    <string name="classe_criada_com_sucesso">Classe criada com sucesso</string>
 </resources>
