@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.MainActivity">
+
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/turmaMain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="30sp"
+                app:srcCompat="@drawable/turma"
+                android:contentDescription="@string/vazio" />
+
+            <ImageView
+                android:id="@+id/alunoMain"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="30sp"
+                app:srcCompat="@drawable/estudante"
+                android:contentDescription="@string/vazio" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="191dp">
+
+            <ImageView
+                android:id="@+id/criarProvaMain"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="30sp"
+                app:srcCompat="@drawable/prova"
+                android:contentDescription="@string/vazio"/>
+
+            <ImageView
+                android:id="@+id/escanearMain"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="30sp"
+                app:srcCompat="@drawable/cam"
+                android:contentDescription="@string/vazio" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/criarPessoasETurmasMain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="30sp"
+                app:srcCompat="@drawable/add"
+                android:contentDescription="@string/vazio"/>
+
+            <ImageView
+                android:id="@+id/sobreMain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="30sp"
+                app:srcCompat="@drawable/about"
+                android:contentDescription="@string/vazio" />
+        </TableRow>
+
+    </TableLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/menu"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/tableLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.66" />
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adPrincipal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        app:adSize="FULL_BANNER"
+        app:adUnitId="ca-app-pub-3940256099942544/6300978111"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
