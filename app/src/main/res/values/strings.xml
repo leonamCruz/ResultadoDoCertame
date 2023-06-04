@@ -8,4 +8,5 @@
     <string name="adicionar_alunos">Adicionar Alunos</string>
     <string name="infelizmente_a_classe_n_o_foi_criada">Infelizmente a classe não foi criada.</string>
     <string name="classe_criada_com_sucesso">Classe criada com sucesso</string>
+    <string name="insira_o_nome_da_turma">Insira o nome da turma.</string>
 </resources>
