@@ -9,4 +9,10 @@
     <string name="infelizmente_a_classe_n_o_foi_criada">Infelizmente a classe não foi criada.</string>
     <string name="classe_criada_com_sucesso">Classe criada com sucesso</string>
     <string name="insira_o_nome_da_turma">Insira o nome da turma.</string>
+    <string name="quantidade_de_quest_es">Quantidade de Questões</string>
+    <string name="quantidade_de_alternativas">Quantidade de Alternativas</string>
+    <string name="provas_com_nomes_individuais">Provas com nomes individuais?</string>
+    <string name="nome_da_turma_">Nome da Turma</string>
+    <string name="insira_as_alternativas_corretas_em_ordem_crescente_e_separadas_por_v_rgula">Insira as alternativas corretas em ordem crescente e separadas por vírgula.</string>
+    <string name="criar_prova">Criar Prova</string>
 </resources>
