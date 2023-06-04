@@ -51,7 +51,7 @@ public class AlunosView extends AppCompatActivity {
     }
     public void clickBotao() {
         criarAlunos.setOnClickListener(e -> {
-            var nomeAlunos = nomesAlunos.getText().toString();
+            var nomeAlunos = nomesAlunos.getText().toString().trim().replaceAll("[\\r\\n]", "");
             var alunos = nomeAlunos.split(";");
 
             var lista = new ArrayList<AlunoEntidade>();
