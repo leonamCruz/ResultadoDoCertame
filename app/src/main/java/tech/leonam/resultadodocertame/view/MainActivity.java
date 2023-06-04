@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         iniciarComponentes();
         iniciarAnuncio();
         clickCriar();
+        clickCriarProva();
     }
 
     public void iniciarComponentes() {
@@ -47,5 +48,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void clickCriar() {
         criarPessoaETurmaView.setOnClickListener(e -> startActivity(new Intent(this, TurmasView.class)));
+    }
+    public void clickCriarProva(){
+        criarProvaView.setOnClickListener(e-> startActivity(new Intent(this, CriarProva.class)));
     }
 }

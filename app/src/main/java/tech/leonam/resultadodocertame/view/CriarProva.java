@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,6 +16,8 @@ import com.google.android.gms.ads.interstitial.InterstitialAd;
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 
 import tech.leonam.resultadodocertame.R;
+import tech.leonam.resultadodocertame.controller.CriacaoDePdf;
+import tech.leonam.resultadodocertame.model.entidade.ConfigProva;
 
 public class CriarProva extends AppCompatActivity {
     private EditText qntAlternativas, qntDeQuestoes, nomeDaTurma, alternativasCorretas;
@@ -28,6 +31,8 @@ public class CriarProva extends AppCompatActivity {
         getSupportActionBar().hide();
         getWindow().setNavigationBarColor(Color.BLACK);
         iniciarComponentes();
+        iniciarAnuncio();
+        logicaIsChecked();
     }
 
     public void iniciarComponentes() {
@@ -52,8 +57,21 @@ public class CriarProva extends AppCompatActivity {
     }
     public void criarProva(){
         criarProva.setOnClickListener(e->{
-            iniciarAnuncio();
-            //todo
+            Toast.makeText(this, "Assista um anúncio enquanto criamos a prova.", Toast.LENGTH_SHORT).show();
+            var thread = new Thread(this::iniciarAnuncio);
+            thread.start();
+
+            var configs = new ConfigProva();
+            configs.setIndividual(isIndividual.isChecked());
+            configs.setAlternativasCorretas(alternativasCorretas.getText().toString());
+            configs.setQntDeQuestoes(qntDeQuestoes.getText().toString());
+            configs.setQntAlternativas(qntAlternativas.getText().toString());
+            configs.setNomeDaTurma(nomeDaTurma.getText().toString());
+
+            new CriacaoDePdf(configs);
         });
+    }
+    public void logicaIsChecked() {
+        isIndividual.setOnClickListener(e -> nomeDaTurma.setEnabled(isIndividual.isChecked()));
     }
 }
