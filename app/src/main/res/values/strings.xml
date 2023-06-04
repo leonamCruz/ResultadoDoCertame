@@ -2,4 +2,6 @@
     <string name="app_name">ResultadoDoCertame</string>
     <string name="menu">Menu</string>
     <string name="vazio" />
+    <string name="nome_da_turma">Nome da Turma</string>
+    <string name="criar_turma">Criar Turma</string>
 </resources>

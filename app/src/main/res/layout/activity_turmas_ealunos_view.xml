@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.TurmasEAlunosView">
+
+    <EditText
+        android:id="@+id/nomeTurmaCriarTurma"
+        android:layout_width="wrap_content"
+        android:layout_height="48sp"
+        android:autofillHints=" "
+        android:minEms="13"
+        android:maxEms="15"
+        android:hint="@string/nome_da_turma"
+        android:inputType="textAutoComplete"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.183" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="200sp"
+        android:layout_height="200sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.12"
+        app:srcCompat="@drawable/prof"
+        android:contentDescription="@string/vazio" />
+
+    <Button
+        android:id="@+id/botaoCriarTurma"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#2C756A"
+        android:text="@string/criar_turma"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/nomeTurmaCriarTurma"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/nomeTurmaCriarTurma"
+        app:layout_constraintTop_toBottomOf="@+id/nomeTurmaCriarTurma"
+        app:layout_constraintVertical_bias="0.16" />
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adCriarTurma"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:adSize="FULL_BANNER"
+        app:adUnitId="ca-app-pub-3940256099942544/6300978111"
+        app:layout_constraintTop_toBottomOf="@+id/botaoCriarTurma" />
+</androidx.constraintlayout.widget.ConstraintLayout>
