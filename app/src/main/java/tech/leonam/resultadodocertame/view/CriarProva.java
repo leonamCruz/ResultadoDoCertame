@@ -15,6 +15,8 @@ import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.interstitial.InterstitialAd;
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 
+import java.io.IOException;
+
 import tech.leonam.resultadodocertame.R;
 import tech.leonam.resultadodocertame.controller.CriacaoDePdf;
 import tech.leonam.resultadodocertame.model.entidade.ConfigProva;
@@ -27,12 +29,14 @@ public class CriarProva extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        MobileAds.initialize(this, initializationStatus -> {});
         setContentView(R.layout.activity_criar_prova);
         getSupportActionBar().hide();
         getWindow().setNavigationBarColor(Color.BLACK);
         iniciarComponentes();
-        iniciarAnuncio();
+        iniciarAnuncio(new AdRequest.Builder().build());
         logicaIsChecked();
+        criarProva();
     }
 
     public void iniciarComponentes() {
@@ -44,31 +48,38 @@ public class CriarProva extends AppCompatActivity {
         criarProva = findViewById(R.id.botaoCriarProva);
     }
 
-    public void iniciarAnuncio() {
-        MobileAds.initialize(this, initializationStatus -> {});
-        var request = new AdRequest.Builder().build();
-        InterstitialAd.load(this, "ca-app-pub-3940256099942544/1033173712", request,
-                new InterstitialAdLoadCallback() {
-                    @Override
-                    public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
-                        interstitialAd.show(CriarProva.this);
-                    }
-                });
+    public void iniciarAnuncio(AdRequest request) {
+        try {
+            InterstitialAd.load(this, "ca-app-pub-3940256099942544/1033173712", request,
+                    new InterstitialAdLoadCallback() {
+                        @Override
+                        public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
+                            interstitialAd.show(CriarProva.this);
+                        }
+                    });
+        } catch (Exception ignored) {}
     }
     public void criarProva(){
         criarProva.setOnClickListener(e->{
             Toast.makeText(this, "Assista um anúncio enquanto criamos a prova.", Toast.LENGTH_SHORT).show();
-            var thread = new Thread(this::iniciarAnuncio);
+            var thread = new Thread(()->iniciarAnuncio(new AdRequest.Builder().build()));
             thread.start();
 
-            var configs = new ConfigProva();
-            configs.setIndividual(isIndividual.isChecked());
-            configs.setAlternativasCorretas(alternativasCorretas.getText().toString());
-            configs.setQntDeQuestoes(qntDeQuestoes.getText().toString());
-            configs.setQntAlternativas(qntAlternativas.getText().toString());
-            configs.setNomeDaTurma(nomeDaTurma.getText().toString());
+            var criarProvaThread = new Thread(()->{
+                var configs = new ConfigProva();
+                configs.setIndividual(isIndividual.isChecked());
+                configs.setAlternativasCorretas(alternativasCorretas.getText().toString());
+                configs.setQntDeQuestoes(qntDeQuestoes.getText().toString());
+                configs.setQntAlternativas(qntAlternativas.getText().toString());
+                configs.setNomeDaTurma(nomeDaTurma.getText().toString());
 
-            new CriacaoDePdf(configs);
+                try {
+                    new CriacaoDePdf(configs).criaPdf(this);
+                } catch (IOException ex) {
+                    Toast.makeText(this, "Deu Muita MERDA!!!!!", Toast.LENGTH_SHORT).show();
+                }
+            });
+            criarProvaThread.start();
         });
     }
     public void logicaIsChecked() {

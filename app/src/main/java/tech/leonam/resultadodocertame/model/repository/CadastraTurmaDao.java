@@ -1,4 +1,4 @@
-package tech.leonam.resultadodocertame.model.bd;
+package tech.leonam.resultadodocertame.model.repository;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -29,6 +29,5 @@ public class CadastraTurmaDao {
             e.printStackTrace();
             return false;
         }
-
     }
 }

@@ -1,4 +1,4 @@
-package tech.leonam.resultadodocertame.model.bd;
+package tech.leonam.resultadodocertame.model.repository;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

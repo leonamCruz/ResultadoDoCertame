@@ -2,7 +2,7 @@ package tech.leonam.resultadodocertame.controller;
 
 import android.content.Context;
 
-import tech.leonam.resultadodocertame.model.bd.CadastraTurmaDao;
+import tech.leonam.resultadodocertame.model.repository.CadastraTurmaDao;
 import tech.leonam.resultadodocertame.model.entidade.TurmaEntidade;
 
 public class ControleDeTurma {
