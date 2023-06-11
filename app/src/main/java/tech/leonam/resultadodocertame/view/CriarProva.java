@@ -18,7 +18,7 @@ import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 import java.io.IOException;
 
 import tech.leonam.resultadodocertame.R;
-import tech.leonam.resultadodocertame.controller.CriacaoDePdf;
+import tech.leonam.resultadodocertame.service.CriacaoDePdf;
 import tech.leonam.resultadodocertame.model.entidade.ConfigProva;
 
 public class CriarProva extends AppCompatActivity {
