@@ -17,7 +17,7 @@ import com.google.android.gms.ads.MobileAds;
 import java.util.ArrayList;
 
 import tech.leonam.resultadodocertame.R;
-import tech.leonam.resultadodocertame.controller.ControleDeTurma;
+import tech.leonam.resultadodocertame.service.ControleDeTurma;
 import tech.leonam.resultadodocertame.model.entidade.AlunoEntidade;
 import tech.leonam.resultadodocertame.model.entidade.TurmaEntidade;
 
@@ -76,7 +76,6 @@ public class AlunosView extends AppCompatActivity {
         });
     }
     public void setarHint(){
-        nomesAlunos.setHint("A turma " + nomeDaClasse + " está sendo criada." +
-                "Por favor, separe o nome dos alunos com ;");
+        nomesAlunos.setHint(getString(R.string.a_turma) + nomeDaClasse + getString(R.string.est_sendo_criada_por_favor_insira_cada_aluno_em_uma_linha_diferente));
     }
 }

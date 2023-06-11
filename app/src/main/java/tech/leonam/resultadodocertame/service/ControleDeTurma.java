@@ -1,4 +1,4 @@
-package tech.leonam.resultadodocertame.controller;
+package tech.leonam.resultadodocertame.service;
 
 import android.content.Context;
 
