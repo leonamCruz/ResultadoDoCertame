@@ -34,7 +34,8 @@ public class CriarProva extends AppCompatActivity {
         getSupportActionBar().hide();
         getWindow().setNavigationBarColor(Color.BLACK);
         iniciarComponentes();
-        iniciarAnuncio(new AdRequest.Builder().build());
+        //HABILITAR SOMENTE QUANDO FOR PARA PRODUCAO
+        // TODO iniciarAnuncio(new AdRequest.Builder().build());
         logicaIsChecked();
         criarProva();
     }

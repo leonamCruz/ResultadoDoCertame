@@ -24,7 +24,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 
-import tech.leonam.resultadodocertame.R;
 import tech.leonam.resultadodocertame.model.entidade.ConfigProva;
 
 public class CriacaoDePdf {
@@ -80,13 +79,12 @@ public class CriacaoDePdf {
         var letra = (char)('a' + j);
 
         String nomeDoArquivo = letra + ".png";
-
-        @SuppressLint("DiscouragedApi") int resourceId = context.getResources().getIdentifier(nomeDoArquivo, "drawable", context.getResources().getResourcePackageName(R.drawable.));
-        System.out.println(resourceId);
+        //TODO RESOLVER BUG
+        @SuppressLint("DiscouragedApi") int resourceId = context.getResources().getIdentifier(nomeDoArquivo, "drawable", "tech.leonam.resultadodocertame");
         @SuppressLint("UseCompatLoadingForDrawables") Drawable drawable = context.getResources().getDrawable(resourceId);
-        BitmapDrawable bitmapDrawable = (BitmapDrawable) drawable;
-        Bitmap bitmap = bitmapDrawable.getBitmap();
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        var bitmapDrawable = (BitmapDrawable) drawable;
+        var bitmap = bitmapDrawable.getBitmap();
+        var byteArrayOutputStream = new ByteArrayOutputStream();
 
         bitmap.compress(Bitmap.CompressFormat.PNG,100,byteArrayOutputStream);
 
@@ -99,7 +97,7 @@ public class CriacaoDePdf {
             throw new RuntimeException(e);
         }
 
-        Image image = new Image(imageData);
+        var image = new Image(imageData);
         image.scaleAbsolute(15f,15f);
         return image;
     }
