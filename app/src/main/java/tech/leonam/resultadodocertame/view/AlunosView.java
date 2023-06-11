@@ -70,9 +70,9 @@ public class AlunosView extends AppCompatActivity {
                 Toast.makeText(this, R.string.classe_criada_com_sucesso, Toast.LENGTH_SHORT).show();
                 intencao.putExtra("nomeDaClasse", nomeDaClasse);
                 startActivity(intencao);
+            }else {
+                Toast.makeText(this, R.string.infelizmente_a_classe_n_o_foi_criada, Toast.LENGTH_SHORT).show();
             }
-            Toast.makeText(this, R.string.infelizmente_a_classe_n_o_foi_criada, Toast.LENGTH_SHORT).show();
-
         });
     }
     public void setarHint(){

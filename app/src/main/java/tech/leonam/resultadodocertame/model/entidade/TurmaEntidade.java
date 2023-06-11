@@ -11,6 +11,9 @@ public class TurmaEntidade {
         this.nomeDaTurma = nomeDaTurma;
     }
 
+    public TurmaEntidade() {
+    }
+
     public List<AlunoEntidade> getTurma() {
         return turma;
     }
