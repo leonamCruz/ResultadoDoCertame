@@ -34,7 +34,8 @@ public class AlunosView extends AppCompatActivity {
         getWindow().setNavigationBarColor(Color.BLACK);
         nomeDaClasse = getIntent().getStringExtra("nomeDaClasse");
         iniciarComponentes();
-        iniciarAds();
+        //TODO iniciar somente quando for para produção
+        //iniciarAds();
         setarHint();
         clickBotao();
     }

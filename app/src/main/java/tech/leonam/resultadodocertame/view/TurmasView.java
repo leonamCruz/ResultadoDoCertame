@@ -27,7 +27,8 @@ public class TurmasView extends AppCompatActivity {
         getWindow().setNavigationBarColor(Color.BLACK);
         setContentView(R.layout.turmas);
         iniciarComponentes();
-        iniciarAds();
+        //Habilitar somente quando for para produção
+        //TODO iniciarAds();
         clickBotao();
     }
 

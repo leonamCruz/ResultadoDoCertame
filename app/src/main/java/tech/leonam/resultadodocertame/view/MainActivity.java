@@ -24,7 +24,8 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         getWindow().setNavigationBarColor(Color.BLACK);
         iniciarComponentes();
-        iniciarAnuncio();
+        //TODO INICIAR SOMENTE QUANDO FOR PARA PRODUÇÃO
+        //iniciarAnuncio();
         clickCriar();
         clickCriarProva();
     }
