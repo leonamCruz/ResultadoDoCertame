@@ -10,17 +10,6 @@ import tech.leonam.resultadodocertame.model.entidade.TurmaEntidade;
 
 public class PegaTurmasDao {
     public static final int POSICAO_NOME = 0;
-
-    /*
-    * Explição da lógica:
-    * Os nomes das turmas são os nomes das tabelas
-    * É necessário todos os alunos de uma turma em uma lista para inserir na entidade de turma.
-    * É necessário retornar todas as turmas em um ArrayList
-       BUG CONHECIDO: ESTOU A MEMÓRIA RAM POR ALGUM MOTIVO QUE EU NÃO SEI
-
-    * */
-
-
     public static ArrayList<TurmaEntidade> getTurmas(Context context) {
         var bd = new CreateDataBase(context).getReadableDatabase();
         var listaDeNomesDasTurmas = new ArrayList<String>();
