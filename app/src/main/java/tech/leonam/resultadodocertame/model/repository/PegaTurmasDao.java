@@ -1,5 +1,6 @@
 package tech.leonam.resultadodocertame.model.repository;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 
 import java.util.ArrayList;
@@ -23,38 +24,42 @@ public class PegaTurmasDao {
     public static ArrayList<TurmaEntidade> getTurmas(Context context) {
         var bd = new CreateDataBase(context).getReadableDatabase();
         var listaDeNomesDasTurmas = new ArrayList<String>();
+        String query = "SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%' AND name NOT LIKE 'android_%'";
 
-        try (var cursor = bd.rawQuery("SELECT name FROM sqlite_master WHERE type='table'", null)) {
+        try (var cursor = bd.rawQuery(query, null)) {
             if (cursor.moveToFirst()) {
                 while (!cursor.isAfterLast()) {
                     String nomeDaTabelaDaVez = cursor.getString(POSICAO_NOME);
+                    System.out.println(nomeDaTabelaDaVez);
                     listaDeNomesDasTurmas.add(nomeDaTabelaDaVez);
+                    cursor.moveToNext();
                 }
             }
         }
 
-        var queryPegarAlunosDeTurmaEspecifica = "SELECT nome FROM ";
+        var queryPegarAlunosDeTurmaEspecifica = "SELECT * FROM ";
         var listaDeTurmas = new ArrayList<TurmaEntidade>();
 
         if (listaDeNomesDasTurmas.size() > 0) {
             for (var i = 0; i < listaDeNomesDasTurmas.size(); i++) {
                 var nomeDaTurmaDaVez = listaDeNomesDasTurmas.get(i);
+                System.out.println(nomeDaTurmaDaVez);
                 var listaDeAlunosDaTurma = new ArrayList<AlunoEntidade>();
                 var turmaEntidade = new TurmaEntidade();
-
-                turmaEntidade.setNomeDaTurma(nomeDaTurmaDaVez.replaceAll("_"," "));
-                try (var cursorDeAlunos = bd.rawQuery(queryPegarAlunosDeTurmaEspecifica + nomeDaTurmaDaVez, null)) {
-
+                var queryy = String.format("SELECT nome FROM %s",nomeDaTurmaDaVez);
+                try (var cursorDeAlunos = bd.rawQuery(queryy, null)) {
+                    cursorDeAlunos.moveToFirst();
                     while (!cursorDeAlunos.isAfterLast()) {
-
+                        System.out.println(cursorDeAlunos.getPosition());
                         var entidadeDeAluno = new AlunoEntidade();
-                        var alunoDaVez = cursorDeAlunos.getString(POSICAO_NOME);
+                        @SuppressLint("Range") var alunoDaVez = cursorDeAlunos.getString(cursorDeAlunos.getColumnIndex("nome"));
                         entidadeDeAluno.setNome(alunoDaVez);
                         listaDeAlunosDaTurma.add(entidadeDeAluno);
                         cursorDeAlunos.moveToNext();
                     }
                     turmaEntidade.setTurma(listaDeAlunosDaTurma);
                 }
+                turmaEntidade.setNomeDaTurma(nomeDaTurmaDaVez.replaceAll("_"," "));
                 listaDeTurmas.add(turmaEntidade);
             }
 

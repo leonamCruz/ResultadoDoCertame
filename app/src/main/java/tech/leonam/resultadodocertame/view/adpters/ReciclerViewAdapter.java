@@ -36,7 +36,7 @@ public class ReciclerViewAdapter extends RecyclerView.Adapter<ReciclerView> {
         if (turmas.size() > 1) {
             var turma = turmas.get(position);
             holder.getNomeDaTurma().setText(turma.getNomeDaTurma());
-            holder.getQntdDeAlunos().setText(turmas.get(position).getTurma().size());
+            holder.getQntdDeAlunos().setText(String.valueOf(turmas.get(position).getTurma().size()));
         } else {
             holder.getNomeDaTurma().setText(R.string.n_o_h_turmas);
             holder.getQntdDeAlunos().setText(R.string.insira_novas_turmas);
