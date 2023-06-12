@@ -7,8 +7,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
-
 import tech.leonam.resultadodocertame.R;
 import tech.leonam.resultadodocertame.service.PegaTurmas;
 import tech.leonam.resultadodocertame.view.adpters.ReciclerViewAdapter;
