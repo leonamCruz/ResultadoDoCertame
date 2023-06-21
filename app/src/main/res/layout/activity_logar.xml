@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.Logar">
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="125sp"
+        android:layout_height="125sp"
+        android:contentDescription="@string/logo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.216"
+        app:srcCompat="@drawable/form" />
+
+    <EditText
+        android:id="@+id/emailLogar"
+        android:layout_width="wrap_content"
+        android:layout_height="48sp"
+        android:ems="12"
+        android:hint="@string/e_mail"
+        android:importantForAutofill="no"
+        android:inputType="textEmailAddress"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4"
+        app:layout_constraintVertical_bias="0.131" />
+
+    <EditText
+        android:hint="@string/senha"
+        android:id="@+id/senhaLogar"
+        android:layout_width="wrap_content"
+        android:layout_height="48sp"
+        android:ems="12"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailLogar"
+        app:layout_constraintVertical_bias="0.042"
+        android:importantForAutofill="no" />
+
+    <Button
+        android:id="@+id/botaoLogar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/login"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/senhaLogar"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/senhaLogar"
+        app:layout_constraintTop_toBottomOf="@+id/senhaLogar"
+        app:layout_constraintVertical_bias="0.214" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/provas"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/imageView4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.857" />
+
+    <Button
+        android:id="@+id/botaoRecuperarSenha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/recuperar_senha"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/botaoLogar"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/senhaLogar"
+        app:layout_constraintTop_toBottomOf="@+id/botaoLogar"
+        app:layout_constraintVertical_bias="0.108" />
+
+    <TextView
+        android:id="@+id/cadastrar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/n_o_tem_conta_clique_aqui_para_se_cadastrar"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/botaoRecuperarSenha"
+        app:layout_constraintVertical_bias="0.355" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
