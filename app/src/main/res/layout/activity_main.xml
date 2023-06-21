@@ -29,13 +29,12 @@
                 android:contentDescription="@string/vazio" />
 
             <ImageView
-                android:id="@+id/alunoMain"
-
+                android:id="@+id/criarPessoasETurmasMain"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/vazio"
                 android:padding="30sp"
-                app:srcCompat="@drawable/estudante"
-                android:contentDescription="@string/vazio" />
+                app:srcCompat="@drawable/add" />
 
         </TableRow>
 
@@ -48,31 +47,23 @@
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/vazio"
                 android:padding="30sp"
-                app:srcCompat="@drawable/prova"
-                android:contentDescription="@string/vazio"/>
+                app:srcCompat="@drawable/prova" />
 
             <ImageView
                 android:id="@+id/escanearMain"
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/vazio"
                 android:padding="30sp"
-                app:srcCompat="@drawable/cam"
-                android:contentDescription="@string/vazio" />
+                app:srcCompat="@drawable/cam" />
         </TableRow>
 
         <TableRow
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
-
-            <ImageView
-                android:id="@+id/criarPessoasETurmasMain"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="30sp"
-                app:srcCompat="@drawable/add"
-                android:contentDescription="@string/vazio"/>
 
             <ImageView
                 android:id="@+id/sobreMain"
@@ -81,6 +72,7 @@
                 android:padding="30sp"
                 app:srcCompat="@drawable/about"
                 android:contentDescription="@string/vazio" />
+
         </TableRow>
 
     </TableLayout>

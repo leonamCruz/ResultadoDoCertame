@@ -14,7 +14,7 @@ import com.google.android.gms.ads.MobileAds;
 import tech.leonam.resultadodocertame.R;
 
 public class MainActivity extends AppCompatActivity {
-    private ImageView turmaView, alunoView, criarPessoaETurmaView, criarProvaView, sobreView, escanearView;
+    private ImageView turmaView, criarPessoaETurmaView, criarProvaView, sobreView, escanearView;
     private AdView ads;
 
     @Override
@@ -33,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void iniciarComponentes() {
         turmaView = findViewById(R.id.turmaMain);
-        alunoView = findViewById(R.id.alunoMain);
         criarProvaView = findViewById(R.id.criarProvaMain);
         escanearView = findViewById(R.id.escanearMain);
         sobreView = findViewById(R.id.sobreMain);
