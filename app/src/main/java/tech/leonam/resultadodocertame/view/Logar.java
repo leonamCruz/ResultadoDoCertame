@@ -1,6 +1,7 @@
 package tech.leonam.resultadodocertame.view;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -25,6 +26,8 @@ public class Logar extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_logar);
+        getSupportActionBar().hide();
+        getWindow().setStatusBarColor(Color.BLACK);
         iniciarComponentes();
         logar();
         cadastrar();

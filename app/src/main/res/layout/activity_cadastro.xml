@@ -37,7 +37,7 @@
         android:importantForAutofill="no" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/botaoCadastro"
         android:layout_width="wrap_content"
         android:layout_height="48sp"
         android:text="@string/cadastrar"
