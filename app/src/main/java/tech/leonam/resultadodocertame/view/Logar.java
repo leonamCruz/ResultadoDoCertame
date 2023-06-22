@@ -26,7 +26,6 @@ public class Logar extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_logar);
         iniciarComponentes();
-        firebaseInit();
         logar();
         cadastrar();
         recuperarSenha();
@@ -38,18 +37,14 @@ public class Logar extends AppCompatActivity {
         email = findViewById(R.id.emailLogar);
         senha = findViewById(R.id.senhaLogar);
         cadastro = findViewById(R.id.cadastrar);
-    }
-
-    public void firebaseInit() {
         mAuth = FirebaseAuth.getInstance();
     }
-
     @Override
     protected void onStart() {
         super.onStart();
         var currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
-            //Iniciar Aplicativo TODO
+            abrirMenuPrincipal();
         }
     }
 
@@ -60,8 +55,7 @@ public class Logar extends AppCompatActivity {
     }
 
     public boolean abrirMenuPrincipal() {
-        var intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
+        startActivity(new Intent(this, MainActivity.class));
         return true;
     }
 
@@ -74,12 +68,11 @@ public class Logar extends AppCompatActivity {
     }
 
     public void cadastrar() {
-        //TODO Abrir outra tela
+        cadastro.setOnClickListener(e-> startActivity(new Intent(this,Cadastro.class)));
     }
 
     public void recuperarSenha() {
         recuperarSenha.setOnClickListener(e -> {
-            //var intent = new Intent();
             //TODO janela nova pra abrir
         });
     }
