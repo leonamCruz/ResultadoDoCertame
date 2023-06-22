@@ -52,7 +52,7 @@
     <CheckBox
         android:id="@+id/checkIndividual"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="48sp"
         android:textSize="15.5sp"
         android:text="@string/provas_com_nomes_individuais"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -68,7 +68,7 @@
         android:layout_height="48sp"
         android:autofillHints=""
         android:ems="8"
-        android:enabled="false"
+        android:enabled="true"
         android:hint="@string/nome_da_turma_"
         android:inputType="textCapSentences"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -118,7 +118,7 @@
         app:layout_constraintTop_toBottomOf="@+id/txtQuestoesCorretas"
         app:layout_constraintVertical_bias="0.222" />
 
-    <AutoCompleteTextView
+    <EditText
         android:id="@+id/identificacaoCriarProva"
         android:layout_width="wrap_content"
         android:layout_height="48sp"
@@ -129,7 +129,9 @@
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="@+id/checkIndividual"
         app:layout_constraintTop_toBottomOf="@+id/checkIndividual"
-        app:layout_constraintVertical_bias="0.464" />
+        app:layout_constraintVertical_bias="0.464"
+        android:importantForAutofill="no"
+        android:inputType="textAutoComplete" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

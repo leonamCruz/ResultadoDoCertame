@@ -5,6 +5,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.util.Log;
 
 import com.itextpdf.io.image.ImageData;
 import com.itextpdf.io.image.ImageDataFactory;
@@ -76,10 +77,8 @@ public class CriacaoDePdf {
     }
     private Image createImage(Context context,int j) {
         var letra = (char)('a' + j);
-
-        String nomeDoArquivo = letra + ".png";
-        //TODO RESOLVER BUG
-        @SuppressLint("DiscouragedApi") int resourceId = context.getResources().getIdentifier(nomeDoArquivo, "drawable", "tech.leonam.resultadodocertame");
+        @SuppressLint("DiscouragedApi") int resourceId = context.getResources().getIdentifier(String.valueOf(letra), "drawable",context.getPackageName());
+        Log.d("DEBUG", "Resource ID: " + resourceId);
         @SuppressLint("UseCompatLoadingForDrawables") Drawable drawable = context.getResources().getDrawable(resourceId);
         var bitmapDrawable = (BitmapDrawable) drawable;
         var bitmap = bitmapDrawable.getBitmap();
@@ -93,7 +92,7 @@ public class CriacaoDePdf {
         try {
             byteArrayOutputStream.close();
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
 
         var image = new Image(imageData);
