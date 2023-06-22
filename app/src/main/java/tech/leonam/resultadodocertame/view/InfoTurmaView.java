@@ -24,7 +24,7 @@ public class InfoTurmaView extends AppCompatActivity {
 
     public void iniciarReciclagem() {
         RecyclerView recyclerView = findViewById(R.id.reciclavel);
-        adapter = new ReciclerViewAdapter(this, PegaTurmas.turmas(this));
+        adapter = new ReciclerViewAdapter(this, new PegaTurmas().getTurmas(this));
         var layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(layoutManager);

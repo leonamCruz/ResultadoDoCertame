@@ -3,6 +3,15 @@ package tech.leonam.resultadodocertame.model.entidade;
 public class ConfigProva {
     private String qntAlternativas, qntDeQuestoes, nomeDaTurma, alternativasCorretas;
     private boolean isIndividual;
+    private String identificacaoProva;
+
+    public String getIdentificacaoProva() {
+        return identificacaoProva;
+    }
+
+    public void setIdentificacaoProva(String identificacaoProva) {
+        this.identificacaoProva = identificacaoProva;
+    }
 
     public String getQntAlternativas() {
         return qntAlternativas;

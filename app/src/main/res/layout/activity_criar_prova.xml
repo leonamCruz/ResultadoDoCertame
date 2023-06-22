@@ -66,6 +66,7 @@
         android:id="@+id/txtTurma"
         android:layout_width="wrap_content"
         android:layout_height="48sp"
+        android:autofillHints=""
         android:ems="8"
         android:enabled="false"
         android:hint="@string/nome_da_turma_"
@@ -75,8 +76,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/checkIndividual"
         app:layout_constraintTop_toBottomOf="@+id/checkIndividual"
-        app:layout_constraintVertical_bias="0.04"
-        android:autofillHints="" />
+        app:layout_constraintVertical_bias="0.196" />
 
     <ImageView
         android:id="@+id/checked"
@@ -116,7 +116,20 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/txtQuestoesCorretas"
         app:layout_constraintTop_toBottomOf="@+id/txtQuestoesCorretas"
-        app:layout_constraintVertical_bias="0.365" />
+        app:layout_constraintVertical_bias="0.222" />
+
+    <AutoCompleteTextView
+        android:id="@+id/identificacaoCriarProva"
+        android:layout_width="wrap_content"
+        android:layout_height="48sp"
+        android:ems="12"
+        android:hint="@string/identifica_o_da_prova"
+        app:layout_constraintBottom_toTopOf="@+id/txtTurma"
+        app:layout_constraintEnd_toEndOf="@+id/checkIndividual"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="@+id/checkIndividual"
+        app:layout_constraintTop_toBottomOf="@+id/checkIndividual"
+        app:layout_constraintVertical_bias="0.464" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

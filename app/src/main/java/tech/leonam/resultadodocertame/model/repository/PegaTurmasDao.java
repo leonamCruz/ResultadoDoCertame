@@ -7,10 +7,12 @@ import java.util.ArrayList;
 
 import tech.leonam.resultadodocertame.model.entidade.AlunoEntidade;
 import tech.leonam.resultadodocertame.model.entidade.TurmaEntidade;
+import tech.leonam.resultadodocertame.model.interfaces.InterfacePegaTurmas;
 
-public class PegaTurmasDao {
+public class PegaTurmasDao implements InterfacePegaTurmas {
     public static final int POSICAO_NOME = 0;
-    public static ArrayList<TurmaEntidade> getTurmas(Context context) {
+    @Override
+    public ArrayList<TurmaEntidade> getTurmas(Context context) {
         var bd = new CreateDataBase(context).getReadableDatabase();
         var listaDeNomesDasTurmas = new ArrayList<String>();
         String query = "SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%' AND name NOT LIKE 'android_%'";

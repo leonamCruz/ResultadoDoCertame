@@ -65,7 +65,7 @@ public class AlunosView extends AppCompatActivity {
             }
             var turmaEntidade = new TurmaEntidade(lista, nomeDaClasse);
 
-            if (ControleDeTurma.cadastre(turmaEntidade, this)) {
+            if (new ControleDeTurma().cadastrar(turmaEntidade, this)) {
                 var intencao = new Intent(this, MainActivity.class);
                 Toast.makeText(this, R.string.classe_criada_com_sucesso, Toast.LENGTH_SHORT).show();
                 intencao.putExtra("nomeDaClasse", nomeDaClasse);
