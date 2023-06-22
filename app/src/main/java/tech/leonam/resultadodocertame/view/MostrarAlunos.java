@@ -1,8 +1,10 @@
-package tech.leonam.resultadodocertame;
+package tech.leonam.resultadodocertame.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import tech.leonam.resultadodocertame.R;
 
 public class MostrarAlunos extends AppCompatActivity {
 
