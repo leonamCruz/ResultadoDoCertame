@@ -1,5 +1,6 @@
 package tech.leonam.resultadodocertame.view;
 
+import android.app.AlertDialog;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.Button;
@@ -15,29 +16,27 @@ import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.interstitial.InterstitialAd;
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 
-import java.io.IOException;
-
 import tech.leonam.resultadodocertame.R;
-import tech.leonam.resultadodocertame.service.CriacaoDePdf;
 import tech.leonam.resultadodocertame.model.entidade.ConfigProva;
+import tech.leonam.resultadodocertame.service.CriacaoDePdf;
 import tech.leonam.resultadodocertame.service.ServiceSalvaProvas;
 
 public class CriarProva extends AppCompatActivity {
-    private EditText qntAlternativas, qntDeQuestoes, nomeDaTurma, alternativasCorretas,identificacaoProva;
+    private EditText qntAlternativas, qntDeQuestoes, nomeDaTurma, alternativasCorretas, identificacaoProva;
     private CheckBox isIndividual;
     private Button criarProva;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        MobileAds.initialize(this, initializationStatus -> {});
+        MobileAds.initialize(this, initializationStatus -> {
+        });
         setContentView(R.layout.activity_criar_prova);
         getSupportActionBar().hide();
         getWindow().setNavigationBarColor(Color.BLACK);
         iniciarComponentes();
         //HABILITAR SOMENTE QUANDO FOR PARA PRODUCAO
         // TODO iniciarAnuncio(new AdRequest.Builder().build());
-        logicaIsChecked();
         criarProva();
     }
 
@@ -60,15 +59,21 @@ public class CriarProva extends AppCompatActivity {
                             interstitialAd.show(CriarProva.this);
                         }
                     });
-        } catch (Exception ignored) {}
+        } catch (Exception ignored) {
+        }
     }
-    public void criarProva(){
-        criarProva.setOnClickListener(e->{
-            Toast.makeText(this, "Assista um anúncio enquanto criamos a prova.", Toast.LENGTH_SHORT).show();
-            var thread = new Thread(()->iniciarAnuncio(new AdRequest.Builder().build()));
-            thread.start();
 
-            var criarProvaThread = new Thread(()->{
+    public void criarProva() {
+        criarProva.setOnClickListener(e -> {
+            var qntdDeCorretasDigitadas = alternativasCorretas.getText().toString().split("\n").length;
+            if (Integer.parseInt(qntAlternativas.getText().toString()) != qntdDeCorretasDigitadas) {
+                var dialog = new AlertDialog.Builder(this);
+                dialog.setTitle("Erro");
+                dialog.setMessage("A quantidade de alternativas está diferente da quantidade de alternativas corretas que você forneceu");
+                dialog.setCancelable(true);
+                dialog.create().show();
+            } else {
+
                 var configs = new ConfigProva();
                 configs.setIndividual(isIndividual.isChecked());
                 configs.setAlternativasCorretas(alternativasCorretas.getText().toString());
@@ -76,18 +81,17 @@ public class CriarProva extends AppCompatActivity {
                 configs.setQntAlternativas(qntAlternativas.getText().toString());
                 configs.setNomeDaTurma(nomeDaTurma.getText().toString());
                 configs.setIdentificacaoProva(identificacaoProva.getText().toString());
+                System.out.println(configs.getIdentificacaoProva());
 
                 try {
                     new CriacaoDePdf(configs).criaPdf(this);
-                    new ServiceSalvaProvas().salvaProvas(this,configs);
-                } catch (IOException ex) {
+                    new ServiceSalvaProvas().salvaProvas(this, configs);
+                    Toast.makeText(this, "Prova Criada com sucesso", Toast.LENGTH_SHORT).show();
+                } catch (Exception ex) {
+                    ex.printStackTrace();
                     Toast.makeText(this, "Deu Muita MERDA!!!!!", Toast.LENGTH_SHORT).show();
                 }
-            });
-            criarProvaThread.start();
+            }
         });
-    }
-    public void logicaIsChecked() {
-        isIndividual.setOnClickListener(e -> nomeDaTurma.setEnabled(isIndividual.isChecked()));
     }
 }

@@ -4,6 +4,6 @@ import android.content.Context;
 
 import tech.leonam.resultadodocertame.model.entidade.ConfigProva;
 
-public interface InterfaceSalvaProvas {
-    boolean salvaProvas(Context context, ConfigProva configProva);
+public interface InterfaceSalvaProvas{
+    boolean salvaProvas(Context context, ConfigProva configProva) throws Exception;
 }
