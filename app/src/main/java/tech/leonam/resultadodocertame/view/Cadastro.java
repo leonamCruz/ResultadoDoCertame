@@ -41,7 +41,7 @@ public class Cadastro extends AppCompatActivity {
         cadastro.setOnClickListener(e -> mAuth.createUserWithEmailAndPassword(String.valueOf(email.getText()), String.valueOf(senha.getText())).addOnCompleteListener(this, task -> {
             if (task.isSuccessful()) {
                 startActivity(new Intent(this, Logar.class));
-            }else{
+            } else {
                 Toast.makeText(this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
             }
         }));

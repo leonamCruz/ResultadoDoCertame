@@ -74,7 +74,6 @@ public class CriacaoDePdf {
         document.close();
         outputStream.close();
     }
-
     private Image createImage(Context context,int j) {
         var letra = (char)('a' + j);
 

@@ -13,7 +13,7 @@
     <string name="quantidade_de_alternativas">Quantidade de Alternativas</string>
     <string name="provas_com_nomes_individuais">Provas com nomes individuais?</string>
     <string name="nome_da_turma_">Nome da Turma</string>
-    <string name="insira_as_alternativas_corretas_em_ordem_crescente_e_separadas_por_v_rgula">Insira as alternativas corretas em ordem crescente e separadas por vírgula.</string>
+    <string name="insira_as_alternativas_corretas_em_ordem_crescente_e_separadas_por_v_rgula">Insira as alternativas corretas em ordem crescente e separadas por quebra de linha.</string>
     <string name="criar_prova">Criar Prova</string>
     <string name="a_turma">"A turma "</string>
     <string name="est_sendo_criada_por_favor_insira_cada_aluno_em_uma_linha_diferente">" está sendo criada. Por favor, insira cada aluno em uma linha diferente."</string>
@@ -31,4 +31,5 @@
     <string name="n_o_tem_conta_clique_aqui_para_se_cadastrar">Não tem conta? Clique aqui para se cadastrar.</string>
     <string name="cadastrar">Cadastrar</string>
     <string name="arroba">arroba</string>
+    <string name="identifica_o_da_prova">Identificação da Prova</string>
 </resources>

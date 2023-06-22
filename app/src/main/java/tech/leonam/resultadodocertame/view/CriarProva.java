@@ -20,9 +20,10 @@ import java.io.IOException;
 import tech.leonam.resultadodocertame.R;
 import tech.leonam.resultadodocertame.service.CriacaoDePdf;
 import tech.leonam.resultadodocertame.model.entidade.ConfigProva;
+import tech.leonam.resultadodocertame.service.ServiceSalvaProvas;
 
 public class CriarProva extends AppCompatActivity {
-    private EditText qntAlternativas, qntDeQuestoes, nomeDaTurma, alternativasCorretas;
+    private EditText qntAlternativas, qntDeQuestoes, nomeDaTurma, alternativasCorretas,identificacaoProva;
     private CheckBox isIndividual;
     private Button criarProva;
 
@@ -47,6 +48,7 @@ public class CriarProva extends AppCompatActivity {
         alternativasCorretas = findViewById(R.id.txtQuestoesCorretas);
         isIndividual = findViewById(R.id.checkIndividual);
         criarProva = findViewById(R.id.botaoCriarProva);
+        identificacaoProva = findViewById(R.id.identificacaoCriarProva);
     }
 
     public void iniciarAnuncio(AdRequest request) {
@@ -73,9 +75,11 @@ public class CriarProva extends AppCompatActivity {
                 configs.setQntDeQuestoes(qntDeQuestoes.getText().toString());
                 configs.setQntAlternativas(qntAlternativas.getText().toString());
                 configs.setNomeDaTurma(nomeDaTurma.getText().toString());
+                configs.setIdentificacaoProva(identificacaoProva.getText().toString());
 
                 try {
                     new CriacaoDePdf(configs).criaPdf(this);
+                    new ServiceSalvaProvas().salvaProvas(this,configs);
                 } catch (IOException ex) {
                     Toast.makeText(this, "Deu Muita MERDA!!!!!", Toast.LENGTH_SHORT).show();
                 }
