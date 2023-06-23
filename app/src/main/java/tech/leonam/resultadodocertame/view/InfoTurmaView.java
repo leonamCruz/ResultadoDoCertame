@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import tech.leonam.resultadodocertame.R;
-import tech.leonam.resultadodocertame.service.PegaTurmas;
+import tech.leonam.resultadodocertame.modelView.PegaTurmas;
 import tech.leonam.resultadodocertame.view.adapters.ReciclerViewAdapter;
 
 public class InfoTurmaView extends AppCompatActivity {

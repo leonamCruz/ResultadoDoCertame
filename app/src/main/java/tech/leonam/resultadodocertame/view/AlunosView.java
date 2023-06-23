@@ -18,8 +18,9 @@ import java.util.ArrayList;
 
 import tech.leonam.resultadodocertame.R;
 import tech.leonam.resultadodocertame.model.entidade.AlunoEntidade;
-import tech.leonam.resultadodocertame.model.entidade.TurmaEntidade;
-import tech.leonam.resultadodocertame.service.ControleDeTurma;
+import tech.leonam.resultadodocertame.modelView.AlunoService;
+import tech.leonam.resultadodocertame.modelView.ControleDeTurma;
+import tech.leonam.resultadodocertame.modelView.TurmaService;
 
 public class AlunosView extends AppCompatActivity {
     private String nomeDaClasse;
@@ -59,13 +60,15 @@ public class AlunosView extends AppCompatActivity {
             var lista = new ArrayList<AlunoEntidade>();
 
             for (var aluno : alunos) {
-                var entidadeAluno = new AlunoEntidade();
-                entidadeAluno.setNome(aluno);
-                lista.add(entidadeAluno);
+                var entidade = new AlunoService();
+                entidade.setNome(aluno);
+                lista.add(entidade);
             }
-            var turmaEntidade = new TurmaEntidade(lista, nomeDaClasse);
+            var turmaService = new TurmaService();
+            turmaService.setTurma(lista);
+            turmaService.setNomeDaTurma(nomeDaClasse);
 
-            if (new ControleDeTurma().cadastrar(turmaEntidade, this)) {
+            if (new ControleDeTurma().cadastrar(turmaService, this)) {
                 var intencao = new Intent(this, MainActivity.class);
                 Toast.makeText(this, R.string.classe_criada_com_sucesso, Toast.LENGTH_SHORT).show();
                 intencao.putExtra("nomeDaClasse", nomeDaClasse);
