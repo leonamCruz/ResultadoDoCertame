@@ -1,16 +1,12 @@
-package tech.leonam.resultadodocertame.service;
+package tech.leonam.resultadodocertame.service
 
-import android.content.Context;
+import android.content.Context
+import tech.leonam.resultadodocertame.model.entidade.TurmaEntidade
+import tech.leonam.resultadodocertame.model.interfaces.InterfacePegaTurmas
+import tech.leonam.resultadodocertame.model.repository.PegaTurmasDao
 
-import java.util.ArrayList;
-
-import tech.leonam.resultadodocertame.model.entidade.TurmaEntidade;
-import tech.leonam.resultadodocertame.model.interfaces.InterfacePegaTurmas;
-import tech.leonam.resultadodocertame.model.repository.PegaTurmasDao;
-
-public class PegaTurmas extends ArrayList<TurmaEntidade>  implements InterfacePegaTurmas {
-    @Override
-    public ArrayList<TurmaEntidade> getTurmas(Context context) {
-        return new PegaTurmasDao().getTurmas(context);
+class PegaTurmas : ArrayList<TurmaEntidade?>(), InterfacePegaTurmas {
+    override fun getTurmas(context: Context): ArrayList<TurmaEntidade> {
+        return PegaTurmasDao().getTurmas(context)
     }
 }

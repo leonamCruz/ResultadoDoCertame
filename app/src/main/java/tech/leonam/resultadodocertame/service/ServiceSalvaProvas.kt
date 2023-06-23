@@ -1,14 +1,13 @@
-package tech.leonam.resultadodocertame.service;
+package tech.leonam.resultadodocertame.service
 
-import android.content.Context;
+import android.content.Context
+import tech.leonam.resultadodocertame.model.entidade.ConfigProva
+import tech.leonam.resultadodocertame.model.interfaces.InterfaceSalvaProvas
+import tech.leonam.resultadodocertame.model.repository.SalvaProvaDao
 
-import tech.leonam.resultadodocertame.model.entidade.ConfigProva;
-import tech.leonam.resultadodocertame.model.interfaces.InterfaceSalvaProvas;
-import tech.leonam.resultadodocertame.model.repository.SalvaProvaDao;
-
-public class ServiceSalvaProvas implements InterfaceSalvaProvas {
-    @Override
-    public boolean salvaProvas(Context context, ConfigProva configProva) throws Exception{
-        return new SalvaProvaDao().salvaProvas(context,configProva);
+class ServiceSalvaProvas : InterfaceSalvaProvas {
+    @Throws(Exception::class)
+    override fun salvaProvas(context: Context, configProva: ConfigProva): Boolean {
+        return SalvaProvaDao().salvaProvas(context, configProva)
     }
 }
