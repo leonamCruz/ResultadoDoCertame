@@ -1,8 +1,8 @@
-package tech.leonam.resultadodocertame.view;
-
-import androidx.appcompat.app.AppCompatActivity;
+package tech.leonam.resultadodocertame.view.activitys;
 
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import tech.leonam.resultadodocertame.R;
 

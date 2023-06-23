@@ -1,4 +1,4 @@
-package tech.leonam.resultadodocertame.view;
+package tech.leonam.resultadodocertame.view.activitys;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import tech.leonam.resultadodocertame.R;
-import tech.leonam.resultadodocertame.modelView.PegaTurmas;
+import tech.leonam.resultadodocertame.modelView.service.PegaTurmasService;
 import tech.leonam.resultadodocertame.view.adapters.ReciclerViewAdapter;
 
 public class InfoTurmaView extends AppCompatActivity {
@@ -24,7 +24,7 @@ public class InfoTurmaView extends AppCompatActivity {
 
     public void iniciarReciclagem() {
         RecyclerView recyclerView = findViewById(R.id.reciclavel);
-        adapter = new ReciclerViewAdapter(this, new PegaTurmas().getTurmas(this));
+        adapter = new ReciclerViewAdapter(this, new PegaTurmasService().getTurmas(this));
         var layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(layoutManager);

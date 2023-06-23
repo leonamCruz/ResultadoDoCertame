@@ -1,4 +1,4 @@
-package tech.leonam.resultadodocertame.view;
+package tech.leonam.resultadodocertame.view.activitys;
 
 
 import android.content.Intent;
@@ -18,9 +18,9 @@ import java.util.ArrayList;
 
 import tech.leonam.resultadodocertame.R;
 import tech.leonam.resultadodocertame.model.entidade.AlunoEntidade;
-import tech.leonam.resultadodocertame.modelView.AlunoService;
-import tech.leonam.resultadodocertame.modelView.ControleDeTurma;
-import tech.leonam.resultadodocertame.modelView.TurmaService;
+import tech.leonam.resultadodocertame.modelView.service.AlunoService;
+import tech.leonam.resultadodocertame.modelView.service.ControleDeTurmaService;
+import tech.leonam.resultadodocertame.modelView.service.TurmaService;
 
 public class AlunosView extends AppCompatActivity {
     private String nomeDaClasse;
@@ -68,12 +68,12 @@ public class AlunosView extends AppCompatActivity {
             turmaService.setTurma(lista);
             turmaService.setNomeDaTurma(nomeDaClasse);
 
-            if (new ControleDeTurma().cadastrar(turmaService, this)) {
+            if (new ControleDeTurmaService().cadastrar(turmaService, this)) {
                 var intencao = new Intent(this, MainActivity.class);
                 Toast.makeText(this, R.string.classe_criada_com_sucesso, Toast.LENGTH_SHORT).show();
                 intencao.putExtra("nomeDaClasse", nomeDaClasse);
                 startActivity(intencao);
-            }else {
+            } else {
                 Toast.makeText(this, R.string.infelizmente_a_classe_n_o_foi_criada, Toast.LENGTH_SHORT).show();
             }
         });

@@ -1,4 +1,4 @@
-package tech.leonam.resultadodocertame.modelView;
+package tech.leonam.resultadodocertame.modelView.util;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
