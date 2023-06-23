@@ -1,6 +1,6 @@
 package tech.leonam.resultadodocertame.model.entidade
 
-class AlunoEntidade {
+open class AlunoEntidade {
     var id: Long? = null
     lateinit var nome: String
 }

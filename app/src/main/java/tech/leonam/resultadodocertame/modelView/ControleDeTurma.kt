@@ -1,4 +1,4 @@
-package tech.leonam.resultadodocertame.service
+package tech.leonam.resultadodocertame.modelView
 
 import android.content.Context
 import tech.leonam.resultadodocertame.model.entidade.TurmaEntidade

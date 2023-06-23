@@ -17,9 +17,9 @@ import com.google.android.gms.ads.interstitial.InterstitialAd;
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 
 import tech.leonam.resultadodocertame.R;
-import tech.leonam.resultadodocertame.model.entidade.ConfigProva;
-import tech.leonam.resultadodocertame.service.CriacaoDePdf;
-import tech.leonam.resultadodocertame.service.ServiceSalvaProvas;
+import tech.leonam.resultadodocertame.modelView.ConfigProvaService;
+import tech.leonam.resultadodocertame.modelView.CriacaoDePdf;
+import tech.leonam.resultadodocertame.modelView.ServiceSalvaProvas;
 
 public class CriarProva extends AppCompatActivity {
     private EditText qntAlternativas, qntDeQuestoes, nomeDaTurma, alternativasCorretas, identificacaoProva;
@@ -74,7 +74,7 @@ public class CriarProva extends AppCompatActivity {
                 dialog.create().show();
             } else {
 
-                var configs = new ConfigProva();
+                var configs = new ConfigProvaService();
                 configs.setIndividual(isIndividual.isChecked());
                 configs.setAlternativasCorretas(alternativasCorretas.getText().toString());
                 configs.setQntDeQuestoes(qntDeQuestoes.getText().toString());
