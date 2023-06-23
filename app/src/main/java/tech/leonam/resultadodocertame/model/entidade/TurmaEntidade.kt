@@ -1,32 +1,13 @@
-package tech.leonam.resultadodocertame.model.entidade;
+package tech.leonam.resultadodocertame.model.entidade
 
-import java.util.List;
+class TurmaEntidade {
+    var nomeDaTurma: String? = null
+    var turma: List<AlunoEntidade>? = null
 
-public class TurmaEntidade {
-    private String nomeDaTurma;
-    private List<AlunoEntidade> turma;
+    constructor()
 
-    public TurmaEntidade(List<AlunoEntidade> turma,String nomeDaTurma) {
-        this.turma = turma;
-        this.nomeDaTurma = nomeDaTurma;
-    }
-
-    public TurmaEntidade() {
-    }
-
-    public List<AlunoEntidade> getTurma() {
-        return turma;
-    }
-
-    public void setTurma(List<AlunoEntidade> turma) {
-        this.turma = turma;
-    }
-
-    public String getNomeDaTurma() {
-        return nomeDaTurma;
-    }
-
-    public void setNomeDaTurma(String nomeDaTurma) {
-        this.nomeDaTurma = nomeDaTurma;
+    constructor(turma: List<AlunoEntidade>?, nomeDaTurma: String?) {
+        this.turma = turma
+        this.nomeDaTurma = nomeDaTurma
     }
 }

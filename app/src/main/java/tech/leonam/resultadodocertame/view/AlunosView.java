@@ -18,7 +18,6 @@ import java.util.ArrayList;
 
 import tech.leonam.resultadodocertame.R;
 import tech.leonam.resultadodocertame.service.ControleDeTurma;
-import tech.leonam.resultadodocertame.model.entidade.AlunoEntidade;
 import tech.leonam.resultadodocertame.model.entidade.TurmaEntidade;
 
 public class AlunosView extends AppCompatActivity {
