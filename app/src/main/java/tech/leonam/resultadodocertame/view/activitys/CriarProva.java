@@ -1,4 +1,4 @@
-package tech.leonam.resultadodocertame.view;
+package tech.leonam.resultadodocertame.view.activitys;
 
 import android.app.AlertDialog;
 import android.graphics.Color;
@@ -17,9 +17,9 @@ import com.google.android.gms.ads.interstitial.InterstitialAd;
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 
 import tech.leonam.resultadodocertame.R;
-import tech.leonam.resultadodocertame.modelView.ConfigProvaService;
-import tech.leonam.resultadodocertame.modelView.CriacaoDePdf;
-import tech.leonam.resultadodocertame.modelView.ServiceSalvaProvas;
+import tech.leonam.resultadodocertame.modelView.service.ConfigProvaService;
+import tech.leonam.resultadodocertame.modelView.service.SalvaProvasService;
+import tech.leonam.resultadodocertame.modelView.util.CriacaoDePdf;
 
 public class CriarProva extends AppCompatActivity {
     private EditText qntAlternativas, qntDeQuestoes, nomeDaTurma, alternativasCorretas, identificacaoProva;
@@ -85,7 +85,7 @@ public class CriarProva extends AppCompatActivity {
 
                 try {
                     new CriacaoDePdf(configs).criaPdf(this);
-                    new ServiceSalvaProvas().salvaProvas(this, configs);
+                    new SalvaProvasService().salvaProvas(this, configs);
                     Toast.makeText(this, "Prova Criada com sucesso", Toast.LENGTH_SHORT).show();
                 } catch (Exception ex) {
                     ex.printStackTrace();

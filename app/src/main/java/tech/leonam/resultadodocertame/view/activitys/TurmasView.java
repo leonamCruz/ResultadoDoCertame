@@ -1,4 +1,4 @@
-package tech.leonam.resultadodocertame.view;
+package tech.leonam.resultadodocertame.view.activitys;
 
 import android.content.Intent;
 import android.graphics.Color;
