@@ -5,7 +5,6 @@ import android.content.Context;
 
 import java.util.ArrayList;
 
-import tech.leonam.resultadodocertame.model.entidade.AlunoEntidade;
 import tech.leonam.resultadodocertame.model.entidade.TurmaEntidade;
 import tech.leonam.resultadodocertame.model.interfaces.InterfacePegaTurmas;
 

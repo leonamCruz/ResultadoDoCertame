@@ -1,4 +1,4 @@
-package tech.leonam.resultadodocertame.view.adpters;
+package tech.leonam.resultadodocertame.view.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
