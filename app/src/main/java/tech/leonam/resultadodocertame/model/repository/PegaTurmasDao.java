@@ -5,6 +5,7 @@ import android.content.Context;
 
 import java.util.ArrayList;
 
+import tech.leonam.resultadodocertame.model.entidade.AlunoEntidade;
 import tech.leonam.resultadodocertame.model.entidade.TurmaEntidade;
 import tech.leonam.resultadodocertame.model.interfaces.InterfacePegaTurmas;
 
@@ -28,13 +29,15 @@ public class PegaTurmasDao implements InterfacePegaTurmas {
         }
 
         var queryPegarAlunosDeTurmaEspecifica = "SELECT * FROM ";
-        var listaDeTurmas = new ArrayList<TurmaEntidade>();
 
+        var listaDeTurmas = new ArrayList<TurmaEntidade>();
+        System.out.println(listaDeTurmas.size());
         if (listaDeNomesDasTurmas.size() > 0) {
             for (var i = 0; i < listaDeNomesDasTurmas.size(); i++) {
                 var nomeDaTurmaDaVez = listaDeNomesDasTurmas.get(i);
                 System.out.println(nomeDaTurmaDaVez);
                 var listaDeAlunosDaTurma = new ArrayList<AlunoEntidade>();
+
                 var turmaEntidade = new TurmaEntidade();
                 var queryy = String.format("SELECT nome FROM %s",nomeDaTurmaDaVez);
                 try (var cursorDeAlunos = bd.rawQuery(queryy, null)) {
