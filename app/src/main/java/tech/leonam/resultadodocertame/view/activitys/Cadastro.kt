@@ -1,49 +1,52 @@
-package tech.leonam.resultadodocertame.view.activitys;
+package tech.leonam.resultadodocertame.view.activitys
 
-import android.content.Intent;
-import android.graphics.Color;
-import android.os.Bundle;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
+import android.content.Intent
+import android.graphics.Color
+import android.os.Bundle
+import android.view.View
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import com.google.android.gms.tasks.Task
+import com.google.firebase.auth.AuthResult
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import tech.leonam.resultadodocertame.R
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-
-import tech.leonam.resultadodocertame.R;
-
-public class Cadastro extends AppCompatActivity {
-    private Button cadastro;
-    private EditText email, senha;
-    private FirebaseAuth mAuth;
-    private FirebaseUser user;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        getSupportActionBar().hide();
-        getWindow().setStatusBarColor(Color.BLACK);
-        setContentView(R.layout.activity_cadastro);
-        iniciarComponentes();
-        cadastrar();
+class Cadastro : AppCompatActivity() {
+    private var cadastro: Button? = null
+    private var email: EditText? = null
+    private var senha: EditText? = null
+    private var mAuth: FirebaseAuth? = null
+    private val user: FirebaseUser? = null
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        supportActionBar!!.hide()
+        window.statusBarColor = Color.BLACK
+        setContentView(R.layout.activity_cadastro)
+        iniciarComponentes()
+        cadastrar()
     }
 
-    public void iniciarComponentes() {
-        cadastro = findViewById(R.id.botaoCadastro);
-        email = findViewById(R.id.emailCadastro);
-        senha = findViewById(R.id.senhaCadastro);
-        mAuth = FirebaseAuth.getInstance();
+    fun iniciarComponentes() {
+        cadastro = findViewById(R.id.botaoCadastro)
+        email = findViewById(R.id.emailCadastro)
+        senha = findViewById(R.id.senhaCadastro)
+        mAuth = FirebaseAuth.getInstance()
     }
 
-    public void cadastrar() {
-        cadastro.setOnClickListener(e -> mAuth.createUserWithEmailAndPassword(String.valueOf(email.getText()), String.valueOf(senha.getText())).addOnCompleteListener(this, task -> {
-            if (task.isSuccessful()) {
-                startActivity(new Intent(this, Logar.class));
-            } else {
-                Toast.makeText(this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+    fun cadastrar() {
+        cadastro!!.setOnClickListener { e: View? ->
+            mAuth!!.createUserWithEmailAndPassword(
+                email!!.text.toString(), senha!!.text.toString()
+            ).addOnCompleteListener(this) { task: Task<AuthResult?> ->
+                if (task.isSuccessful) {
+                    startActivity(Intent(this, Logar::class.java))
+                } else {
+                    Toast.makeText(this, task.exception!!.message, Toast.LENGTH_SHORT).show()
+                }
             }
-        }));
+        }
     }
 }

@@ -1,82 +1,91 @@
-package tech.leonam.resultadodocertame.view.activitys;
+package tech.leonam.resultadodocertame.view.activitys
 
-import android.content.Intent;
-import android.graphics.Color;
-import android.os.Bundle;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
+import android.content.Intent
+import android.graphics.Color
+import android.os.Bundle
+import android.view.View
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
+import com.google.android.gms.tasks.Task
+import com.google.firebase.auth.AuthResult
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import tech.leonam.resultadodocertame.R
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-
-import tech.leonam.resultadodocertame.R;
-
-public class Logar extends AppCompatActivity {
-    private Button logar, recuperarSenha;
-    private EditText email, senha;
-    private TextView cadastro;
-    private FirebaseAuth mAuth;
-    private FirebaseUser user;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_logar);
-        getSupportActionBar().hide();
-        getWindow().setStatusBarColor(Color.BLACK);
-        iniciarComponentes();
-        logar();
-        cadastrar();
-        recuperarSenha();
+class Logar : AppCompatActivity() {
+    private var logar: Button? = null
+    private var recuperarSenha: Button? = null
+    private var email: EditText? = null
+    private var senha: EditText? = null
+    private var cadastro: TextView? = null
+    private var mAuth: FirebaseAuth? = null
+    private val user: FirebaseUser? = null
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_logar)
+        supportActionBar!!.hide()
+        window.statusBarColor = Color.BLACK
+        iniciarComponentes()
+        logar()
+        cadastrar()
+        recuperarSenha()
     }
 
-    public void iniciarComponentes() {
-        logar = findViewById(R.id.botaoLogar);
-        recuperarSenha = findViewById(R.id.botaoRecuperarSenha);
-        email = findViewById(R.id.emailLogar);
-        senha = findViewById(R.id.senhaLogar);
-        cadastro = findViewById(R.id.cadastrar);
-        mAuth = FirebaseAuth.getInstance();
+    fun iniciarComponentes() {
+        logar = findViewById(R.id.botaoLogar)
+        recuperarSenha = findViewById(R.id.botaoRecuperarSenha)
+        email = findViewById(R.id.emailLogar)
+        senha = findViewById(R.id.senhaLogar)
+        cadastro = findViewById(R.id.cadastrar)
+        mAuth = FirebaseAuth.getInstance()
     }
-    @Override
-    protected void onStart() {
-        super.onStart();
-        var currentUser = mAuth.getCurrentUser();
+
+    override fun onStart() {
+        super.onStart()
+        val currentUser = mAuth!!.currentUser
         if (currentUser != null) {
-            abrirMenuPrincipal();
+            abrirMenuPrincipal()
         }
     }
 
-    public void logar() {
-        logar.setOnClickListener(e -> mAuth.signInWithEmailAndPassword(email.getText().toString(), senha.getText().toString()).addOnCompleteListener(this, task -> {
-            boolean tarefa = task.isSuccessful() ? abrirMenuPrincipal() : abrirErroDeLogin();
-        }));
+    fun logar() {
+        logar!!.setOnClickListener { e: View? ->
+            mAuth!!.signInWithEmailAndPassword(
+                email!!.text.toString(), senha!!.text.toString()
+            ).addOnCompleteListener(this) { task: Task<AuthResult?> ->
+                val tarefa = if (task.isSuccessful) abrirMenuPrincipal() else abrirErroDeLogin()
+            }
+        }
     }
 
-    public boolean abrirMenuPrincipal() {
-        startActivity(new Intent(this, MainActivity.class));
-        return true;
+    fun abrirMenuPrincipal(): Boolean {
+        startActivity(Intent(this, MainActivity::class.java))
+        return true
     }
 
-    public boolean abrirErroDeLogin() {
-        var dialog = new AlertDialog.Builder(Logar.this);
-        dialog.setTitle("Infelizmente não foi possível efetuar login");
-        dialog.setMessage("Verifique seu Email ou Senha.");
-        dialog.create().show();
-        return true;
+    fun abrirErroDeLogin(): Boolean {
+        val dialog = AlertDialog.Builder(this@Logar)
+        dialog.setTitle("Infelizmente não foi possível efetuar login")
+        dialog.setMessage("Verifique seu Email ou Senha.")
+        dialog.create().show()
+        return true
     }
 
-    public void cadastrar() {
-        cadastro.setOnClickListener(e-> startActivity(new Intent(this,Cadastro.class)));
+    fun cadastrar() {
+        cadastro!!.setOnClickListener { e: View? ->
+            startActivity(
+                Intent(
+                    this,
+                    Cadastro::class.java
+                )
+            )
+        }
     }
 
-    public void recuperarSenha() {
-        recuperarSenha.setOnClickListener(e -> {
-            //TODO janela nova pra abrir
-        });
+    fun recuperarSenha() {
+        recuperarSenha!!.setOnClickListener { e: View? -> }
     }
 }

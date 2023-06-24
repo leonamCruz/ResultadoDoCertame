@@ -1,33 +1,30 @@
-package tech.leonam.resultadodocertame.view.activitys;
+package tech.leonam.resultadodocertame.view.activitys
 
-import android.graphics.Color;
-import android.os.Bundle;
+import android.graphics.Color
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import tech.leonam.resultadodocertame.R
+import tech.leonam.resultadodocertame.modelView.service.PegaTurmasService
+import tech.leonam.resultadodocertame.view.adapters.ReciclerViewAdapter
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import tech.leonam.resultadodocertame.R;
-import tech.leonam.resultadodocertame.modelView.service.PegaTurmasService;
-import tech.leonam.resultadodocertame.view.adapters.ReciclerViewAdapter;
-
-public class InfoTurmaView extends AppCompatActivity {
-    private ReciclerViewAdapter adapter;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_info_turma_view);
-        getSupportActionBar().hide();
-        getWindow().setStatusBarColor(Color.BLACK);
-        iniciarReciclagem();
+class InfoTurmaView : AppCompatActivity() {
+    private var adapter: ReciclerViewAdapter? = null
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_info_turma_view)
+        supportActionBar!!.hide()
+        window.statusBarColor = Color.BLACK
+        iniciarReciclagem()
     }
 
-    public void iniciarReciclagem() {
-        RecyclerView recyclerView = findViewById(R.id.reciclavel);
-        adapter = new ReciclerViewAdapter(this, new PegaTurmasService().getTurmas(this));
-        var layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(adapter);
+    fun iniciarReciclagem() {
+        val recyclerView = findViewById<RecyclerView>(R.id.reciclavel)
+        adapter = ReciclerViewAdapter(this, PegaTurmasService().getTurmas(this))
+        val layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        recyclerView.setHasFixedSize(true)
+        recyclerView.layoutManager = layoutManager
+        recyclerView.adapter = adapter
     }
 }

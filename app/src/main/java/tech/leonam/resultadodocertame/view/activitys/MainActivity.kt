@@ -1,61 +1,64 @@
-package tech.leonam.resultadodocertame.view.activitys;
+package tech.leonam.resultadodocertame.view.activitys
 
-import android.content.Intent;
-import android.graphics.Color;
-import android.os.Bundle;
-import android.widget.ImageView;
+import android.content.Intent
+import android.graphics.Color
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.MobileAds
+import tech.leonam.resultadodocertame.databinding.ActivityMainBinding
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
-
-import tech.leonam.resultadodocertame.R;
-
-public class MainActivity extends AppCompatActivity {
-    private ImageView turmaView, criarPessoaETurmaView, criarProvaView, sobreView, escanearView;
-    private AdView ads;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        getSupportActionBar().hide();
-        getWindow().setNavigationBarColor(Color.BLACK);
-        iniciarComponentes();
+class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        supportActionBar!!.hide()
+        window.navigationBarColor = Color.BLACK
         //TODO INICIAR SOMENTE QUANDO FOR PARA PRODUÇÃO
         //iniciarAnuncio();
-        clickCriar();
-        clickCriarProva();
-        clickTurma();
+        clickCriar()
+        clickCriarProva()
+        clickTurma()
     }
 
-    public void iniciarComponentes() {
-        turmaView = findViewById(R.id.turmaMain);
-        criarProvaView = findViewById(R.id.criarProvaMain);
-        escanearView = findViewById(R.id.escanearMain);
-        sobreView = findViewById(R.id.sobreMain);
-        criarPessoaETurmaView = findViewById(R.id.criarPessoasETurmasMain);
-        ads = findViewById(R.id.adPrincipal);
+    fun iniciarAnuncio() {
+        MobileAds.initialize(this)
+        val pedeAnuncio = AdRequest.Builder().build()
+        binding.adPrincipal.loadAd(pedeAnuncio)
     }
 
-    public void iniciarAnuncio() {
-        MobileAds.initialize(this, initializationStatus -> {
-        });
-        var pedeAnuncio = new AdRequest.Builder().build();
-        ads.loadAd(pedeAnuncio);
+    private fun clickCriar() {
+        binding.criarPessoasETurmasMain.setOnClickListener {
+            startActivity(
+                Intent(
+                    this,
+                    TurmasView::class.java
+                )
+            )
+        }
     }
 
-    public void clickCriar() {
-        criarPessoaETurmaView.setOnClickListener(e -> startActivity(new Intent(this, TurmasView.class)));
+    private fun clickCriarProva() {
+        binding.criarProvaMain.setOnClickListener {
+            startActivity(
+                Intent(
+                    this,
+                    CriarProva::class.java
+                )
+            )
+        }
     }
 
-    public void clickCriarProva() {
-        criarProvaView.setOnClickListener(e -> startActivity(new Intent(this, CriarProva.class)));
-    }
-
-    public void clickTurma() {
-        turmaView.setOnClickListener(e-> startActivity(new Intent(this, InfoTurmaView.class)));
+    private fun clickTurma() {
+        binding.turmaMain.setOnClickListener {
+            startActivity(
+                Intent(
+                    this,
+                    InfoTurmaView::class.java
+                )
+            )
+        }
     }
 }
