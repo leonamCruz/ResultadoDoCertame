@@ -19,11 +19,11 @@ class ReciclerViewAdapter(
     override fun onBindViewHolder(holder: ReciclerView, position: Int) {
         if (turmas.size > 1) {
             val turma = turmas[position]
-            holder.nomeDaTurma.text = turma.nomeDaTurma
-            holder.qntdDeAlunos.text = turmas[position].turma!!.size.toString()
+            holder.binding.nomeTurmaReciclavel.text = turma.nomeDaTurma
+            holder.binding.qntdDeAlunosReciclavel.text = turmas[position].turma!!.size.toString()
         } else {
-            holder.nomeDaTurma.setText(R.string.n_o_h_turmas)
-            holder.qntdDeAlunos.setText(R.string.insira_novas_turmas)
+            holder.binding.nomeTurmaReciclavel.text = context.getString(R.string.n_o_h_turmas)
+            holder.binding.qntdDeAlunosReciclavel.text =context.getString(R.string.insira_novas_turmas)
         }
     }
 
