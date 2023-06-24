@@ -20,7 +20,8 @@ class AlunosView : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_alunos_view)
+        binding = ActivityAlunosViewBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         supportActionBar!!.hide()
         window.navigationBarColor = Color.BLACK
         nomeDaClasse = intent.getStringExtra("nomeDaClasse").toString()
@@ -33,6 +34,7 @@ class AlunosView : AppCompatActivity() {
     }
 
     private fun clickBotao() {
+        binding.adicionarAlunos.isClickable = true
         binding.adicionarAlunos.setOnClickListener {
             val nomeAlunos = binding.alunosEditText.text.toString()
             val alunos = nomeAlunos.split("\n".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()

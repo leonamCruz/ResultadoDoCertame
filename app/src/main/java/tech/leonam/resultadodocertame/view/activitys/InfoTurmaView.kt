@@ -4,7 +4,6 @@ import android.graphics.Color
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import tech.leonam.resultadodocertame.R
 import tech.leonam.resultadodocertame.databinding.ActivityInfoTurmaViewBinding
 import tech.leonam.resultadodocertame.modelView.service.PegaTurmasService
 import tech.leonam.resultadodocertame.view.adapters.ReciclerViewAdapter
@@ -14,7 +13,7 @@ class InfoTurmaView : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityInfoTurmaViewBinding.inflate(layoutInflater)
-        setContentView(R.layout.activity_info_turma_view)
+        setContentView(binding.root)
         supportActionBar!!.hide()
         window.statusBarColor = Color.BLACK
         iniciarReciclagem()
