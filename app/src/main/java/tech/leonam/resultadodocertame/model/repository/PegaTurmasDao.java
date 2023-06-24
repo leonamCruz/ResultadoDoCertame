@@ -6,13 +6,13 @@ import android.content.Context;
 import java.util.ArrayList;
 
 import tech.leonam.resultadodocertame.model.entidade.AlunoEntidade;
-import tech.leonam.resultadodocertame.model.entidade.TurmaEntidade;
 import tech.leonam.resultadodocertame.model.interfaces.InterfacePegaTurmas;
+import tech.leonam.resultadodocertame.modelView.service.TurmaService;
 
 public class PegaTurmasDao implements InterfacePegaTurmas {
     public static final int POSICAO_NOME = 0;
     @Override
-    public ArrayList<TurmaEntidade> getTurmas(Context context) {
+    public ArrayList<TurmaService> getTurmas(Context context) {
         var bd = new CreateDataBase(context).getReadableDatabase();
         var listaDeNomesDasTurmas = new ArrayList<String>();
         String query = "SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%' AND name NOT LIKE 'android_%'";
@@ -30,7 +30,7 @@ public class PegaTurmasDao implements InterfacePegaTurmas {
 
         var queryPegarAlunosDeTurmaEspecifica = "SELECT * FROM ";
 
-        var listaDeTurmas = new ArrayList<TurmaEntidade>();
+        var listaDeTurmas = new ArrayList<TurmaService>();
         System.out.println(listaDeTurmas.size());
         if (listaDeNomesDasTurmas.size() > 0) {
             for (var i = 0; i < listaDeNomesDasTurmas.size(); i++) {
@@ -38,7 +38,7 @@ public class PegaTurmasDao implements InterfacePegaTurmas {
                 System.out.println(nomeDaTurmaDaVez);
                 var listaDeAlunosDaTurma = new ArrayList<AlunoEntidade>();
 
-                var turmaEntidade = new TurmaEntidade();
+                var turmaEntidade = new TurmaService();
                 var queryy = String.format("SELECT nome FROM %s",nomeDaTurmaDaVez);
                 try (var cursorDeAlunos = bd.rawQuery(queryy, null)) {
                     cursorDeAlunos.moveToFirst();

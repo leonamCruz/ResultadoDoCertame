@@ -29,9 +29,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".view.activitys.MostrarAlunos"
-            android:exported="false" />
-        <activity
             android:name=".view.activitys.InfoTurmaView"
             android:exported="false" />
         <activity

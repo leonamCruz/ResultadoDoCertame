@@ -6,7 +6,7 @@ import tech.leonam.resultadodocertame.model.interfaces.InterfacePegaTurmas
 import tech.leonam.resultadodocertame.model.repository.PegaTurmasDao
 
 class PegaTurmasService : ArrayList<TurmaEntidade?>(), InterfacePegaTurmas {
-    override fun getTurmas(context: Context?): ArrayList<TurmaEntidade?>? {
+    override fun getTurmas(context: Context?): ArrayList<TurmaService?>? {
         return PegaTurmasDao().getTurmas(context)
     }
 }
