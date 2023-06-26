@@ -21,7 +21,9 @@
             android:layout_height="match_parent">
         <androidx.cardview.widget.CardView
             android:backgroundTint="@color/quasePreto"
-            app:cardCornerRadius="40sp">
+            app:cardCornerRadius="25sp"
+            android:layout_marginEnd="8sp"
+            >
             <ImageView
                 android:id="@+id/turmaMain"
                 android:layout_width="wrap_content"
@@ -33,10 +35,19 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=""
+                android:text="@string/turmas"
+                android:textSize="14sp"
+                android:textColor="@color/white"
+                android:layout_marginTop="40sp"
+                android:layout_gravity="center"
                 />
         </androidx.cardview.widget.CardView>
 
+            <androidx.cardview.widget.CardView
+                android:backgroundTint="@color/quasePreto"
+                app:cardCornerRadius="25sp"
+                android:layout_marginStart="8sp"
+                >
             <ImageView
                 android:id="@+id/criarPessoasETurmasMain"
                 android:layout_width="wrap_content"
@@ -45,44 +56,96 @@
                 android:padding="30sp"
                 app:srcCompat="@drawable/add" />
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/criar_turma"
+                    android:textColor="@color/white"
+                    android:layout_gravity="center"
+                    android:textSize="14sp"
+                    android:layout_marginTop="40sp"
+                    />
+            </androidx.cardview.widget.CardView>
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="191dp">
-
+            <androidx.cardview.widget.CardView
+                android:backgroundTint="@color/quasePreto"
+                app:cardCornerRadius="25sp"
+                android:layout_marginEnd="8sp"
+                android:layout_marginTop="8sp"
+                android:layout_marginBottom="8sp"
+                >
             <ImageView
                 android:id="@+id/criarProvaMain"
-
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/vazio"
                 android:padding="30sp"
                 app:srcCompat="@drawable/prova" />
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/criar_prova"
+                    android:textColor="@color/white"
+                    android:layout_gravity="center"
+                    android:textSize="14sp"
+                    android:layout_marginTop="40sp"
+                    />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:backgroundTint="@color/quasePreto"
+                app:cardCornerRadius="25sp"
+                android:layout_marginStart="8sp"
+                android:layout_marginTop="8sp">
             <ImageView
                 android:id="@+id/escanearMain"
-
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/vazio"
                 android:padding="30sp"
                 app:srcCompat="@drawable/cam" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/escanear_prova"
+                    android:textColor="@color/white"
+                    android:layout_gravity="center"
+                    android:textSize="13sp"
+                    android:layout_marginTop="40sp"
+                    />
+            </androidx.cardview.widget.CardView>
         </TableRow>
 
-        <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
+        <androidx.cardview.widget.CardView
+            android:backgroundTint="@color/quasePreto"
+            app:cardCornerRadius="25sp"
+            android:layout_marginStart="8sp"
+            android:layout_marginTop="8sp">
             <ImageView
+                android:layout_gravity="center"
                 android:id="@+id/sobreMain"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/vazio"
                 android:padding="30sp"
-                app:srcCompat="@drawable/about"
-                android:contentDescription="@string/vazio" />
+                app:srcCompat="@drawable/about" />
 
-        </TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sobre"
+                android:textColor="@color/white"
+                android:layout_gravity="center"
+                android:textSize="14sp"
+                android:layout_marginTop="40sp"
+                />
+        </androidx.cardview.widget.CardView>
 
     </TableLayout>
 

@@ -32,4 +32,7 @@
     <string name="cadastrar">Cadastrar</string>
     <string name="arroba">arroba</string>
     <string name="identifica_o_da_prova">Identificação da Prova</string>
+    <string name="turmas">Turmas</string>
+    <string name="escanear_prova">Escanear Prova</string>
+    <string name="sobre">Sobre</string>
 </resources>
