@@ -1,8 +1,8 @@
 package tech.leonam.resultadodocertame.view.activitys
 
+import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import tech.leonam.resultadodocertame.databinding.ActivityAbrirTurmaBinding
 import tech.leonam.resultadodocertame.modelView.entidade.TurmaEntidade
@@ -13,6 +13,8 @@ class AbrirTurma : AppCompatActivity() {
     @Suppress("DEPRECATION")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        window.statusBarColor = Color.BLACK
+        supportActionBar!!.hide()
         binding = ActivityAbrirTurmaBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -21,8 +23,7 @@ class AbrirTurma : AppCompatActivity() {
             intent.extras!!.getParcelable("CARALHO")!!
         }
 
-        binding.nomes.setText(lista.nomeDaTurma)
-        Toast.makeText(this, lista.nomeDaTurma, Toast.LENGTH_SHORT).show()
+        binding.nomes.setText(lista.toString())
         binding.nomeTurmaAbrirTurma.text = lista.nomeDaTurma
     }
 }

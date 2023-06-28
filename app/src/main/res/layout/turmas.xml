@@ -34,27 +34,26 @@
         app:srcCompat="@drawable/prof"
         android:contentDescription="@string/vazio" />
 
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adCriarTurma"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:adSize="FULL_BANNER"
+        app:adUnitId="ca-app-pub-3940256099942544/6300978111"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/botaoCriarTurma" />
+
     <Button
         android:id="@+id/botaoCriarTurma"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#2C756A"
         android:text="@string/criar_turma"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/nomeTurmaCriarTurma"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/nomeTurmaCriarTurma"
         app:layout_constraintTop_toBottomOf="@+id/nomeTurmaCriarTurma"
-        app:layout_constraintVertical_bias="0.16" />
-
-    <com.google.android.gms.ads.AdView
-        android:id="@+id/adCriarTurma"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:adSize="FULL_BANNER"
-        app:adUnitId="ca-app-pub-3940256099942544/6300978111"
-        app:layout_constraintTop_toBottomOf="@+id/botaoCriarTurma" />
+        app:layout_constraintVertical_bias="0.265" />
 </androidx.constraintlayout.widget.ConstraintLayout>

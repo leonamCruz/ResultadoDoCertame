@@ -1,22 +1,15 @@
-package tech.leonam.resultadodocertame.model.repository;
+package tech.leonam.resultadodocertame.model.repository
 
-import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
+import android.content.Context
+import android.database.sqlite.SQLiteDatabase
+import android.database.sqlite.SQLiteOpenHelper
 
-import androidx.annotation.Nullable;
+class CreateDataBase(context: Context?) : SQLiteOpenHelper(context, NOME, null, VERSAO.toInt()) {
+    override fun onCreate(db: SQLiteDatabase) {}
+    override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {}
 
-public class CreateDataBase extends SQLiteOpenHelper {
-    private static final String NOME = "bd";
-    private static final byte VERSAO = 1;
-
-    public CreateDataBase(@Nullable Context context) {
-        super(context,NOME,null,VERSAO);
+    companion object {
+        private const val NOME = "bd"
+        private const val VERSAO: Byte = 1
     }
-
-    @Override
-    public void onCreate(SQLiteDatabase db) {}
-
-    @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {}
 }
