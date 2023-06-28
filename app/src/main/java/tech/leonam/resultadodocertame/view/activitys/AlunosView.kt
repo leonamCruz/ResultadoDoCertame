@@ -9,10 +9,9 @@ import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.MobileAds
 import tech.leonam.resultadodocertame.R
 import tech.leonam.resultadodocertame.databinding.ActivityAlunosViewBinding
-import tech.leonam.resultadodocertame.model.entidade.AlunoEntidade
-import tech.leonam.resultadodocertame.modelView.service.AlunoService
+import tech.leonam.resultadodocertame.modelView.entidade.AlunoEntidade
+import tech.leonam.resultadodocertame.modelView.entidade.TurmaEntidade
 import tech.leonam.resultadodocertame.modelView.service.ControleDeTurmaService
-import tech.leonam.resultadodocertame.modelView.service.TurmaService
 
 class AlunosView : AppCompatActivity() {
     private lateinit var binding: ActivityAlunosViewBinding
@@ -40,13 +39,13 @@ class AlunosView : AppCompatActivity() {
             val alunos = nomeAlunos.split("\n".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
             val lista = ArrayList<AlunoEntidade>()
             for (aluno in alunos) {
-                val entidade = AlunoService()
+                val entidade = AlunoEntidade()
                 entidade.nome = aluno
                 lista.add(entidade)
             }
-            val turmaService = TurmaService()
-            turmaService.turma = lista
+            val turmaService = TurmaEntidade()
             turmaService.nomeDaTurma = nomeDaClasse
+            turmaService.turma = lista
             if (ControleDeTurmaService().cadastrar(turmaService, this)) {
                 val intencao = Intent(this, MainActivity::class.java)
                 Toast.makeText(this, R.string.classe_criada_com_sucesso, Toast.LENGTH_SHORT).show()

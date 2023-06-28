@@ -1,7 +1,7 @@
 package tech.leonam.resultadodocertame.modelView.service
 
 import android.content.Context
-import tech.leonam.resultadodocertame.model.entidade.ConfigProva
+import tech.leonam.resultadodocertame.modelView.entidade.ConfigProva
 import tech.leonam.resultadodocertame.model.interfaces.InterfaceSalvaProvas
 import tech.leonam.resultadodocertame.model.repository.SalvaProvaDao
 

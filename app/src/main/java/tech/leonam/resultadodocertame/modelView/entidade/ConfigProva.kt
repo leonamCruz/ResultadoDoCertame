@@ -1,4 +1,4 @@
-package tech.leonam.resultadodocertame.model.entidade
+package tech.leonam.resultadodocertame.modelView.entidade
 
 open class ConfigProva {
     lateinit var qntAlternativas: String

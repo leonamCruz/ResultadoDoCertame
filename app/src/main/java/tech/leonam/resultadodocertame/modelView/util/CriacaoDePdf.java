@@ -25,7 +25,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 
-import tech.leonam.resultadodocertame.model.entidade.ConfigProva;
+import tech.leonam.resultadodocertame.modelView.entidade.ConfigProva;
 
 public class CriacaoDePdf {
     private final ConfigProva configProva;

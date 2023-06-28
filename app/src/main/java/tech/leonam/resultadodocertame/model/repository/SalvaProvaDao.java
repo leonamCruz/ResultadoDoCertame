@@ -3,7 +3,7 @@ package tech.leonam.resultadodocertame.model.repository;
 import android.content.ContentValues;
 import android.content.Context;
 
-import tech.leonam.resultadodocertame.model.entidade.ConfigProva;
+import tech.leonam.resultadodocertame.modelView.entidade.ConfigProva;
 import tech.leonam.resultadodocertame.model.interfaces.InterfaceSalvaProvas;
 
 public class SalvaProvaDao implements InterfaceSalvaProvas {

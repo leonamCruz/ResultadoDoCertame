@@ -3,7 +3,7 @@ package tech.leonam.resultadodocertame.model.repository;
 import android.content.ContentValues;
 import android.content.Context;
 
-import tech.leonam.resultadodocertame.model.entidade.TurmaEntidade;
+import tech.leonam.resultadodocertame.modelView.entidade.TurmaEntidade;
 import tech.leonam.resultadodocertame.model.interfaces.InterfaceCadastraTurma;
 
 public class CadastraTurmaDao implements InterfaceCadastraTurma {
