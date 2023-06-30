@@ -69,8 +69,8 @@ class MainActivity : AppCompatActivity() {
         val config = ConfigProvaService()
         config.identificacaoProva = "Jota Jota"
         config.nomeDaTurma = "Leonam"
-        config.qntDeQuestoes = "30"
-        config.qntAlternativas = "5"
+        config.qntDeQuestoes = "40"
+        config.qntAlternativas = "10"
         config.nomeDoProf = "Leonam Cruz do Nascimento"
         config.identificacaoProva = "Primeira Prova de Matemática"
         CriacaoDePdf.criaPdf(config,this)

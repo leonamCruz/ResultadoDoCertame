@@ -45,7 +45,6 @@ object CriacaoDePdf {
         val page = document.startPage(pageInfo)
         val canvas = page.canvas
         desenharCabecalho(canvas, configs, context)
-
         desenhar(canvas, configs)
 
         document.finishPage(page)
@@ -76,13 +75,17 @@ object CriacaoDePdf {
 
     private fun desenhar(canvas: Canvas, configs: ConfigProvaService) {
         var offsetX = posicaoX
-        var offsetY = posicaoY + (espacamentoDasBolas * 10)
+        var offsetY = posicaoY + (espacamentoDasBolas * 12)
 
         for (k in 1..configs.qntDeQuestoes.toInt()) {
+            paintDoTexto.textSize = 12f
             canvas.drawText(String.format("%02d - ", k), offsetX, offsetY, paintDoTexto)
-            for (j in 0..configs.qntAlternativas.toInt()) {
+            for (j in 1..configs.qntAlternativas.toInt()) {
                 offsetX += imagemWidth + espacamentoDasBolas
                 canvas.drawCircle(offsetX + 20f, offsetY - 5f, 5f, paintDasBolas)
+                val letraDaVez = 'A'  + j - 1
+                paintDoTexto.textSize = 5f
+                canvas.drawText(letraDaVez.toString(),offsetX + 18.3f, offsetY - 3f , paintDoTexto)
             }
             offsetX = posicaoX
             offsetY += imagemHeight + espacamentoDasBolas
