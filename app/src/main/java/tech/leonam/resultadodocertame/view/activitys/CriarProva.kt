@@ -1,13 +1,11 @@
 package tech.leonam.resultadodocertame.view.activitys
 
-import android.app.AlertDialog
 import android.graphics.Color
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import tech.leonam.resultadodocertame.databinding.ActivityCriarProvaBinding
 import tech.leonam.resultadodocertame.modelView.service.ConfigProvaService
-import tech.leonam.resultadodocertame.modelView.service.SalvaProvasService
 import tech.leonam.resultadodocertame.modelView.util.CriacaoDePdf
 
 class CriarProva : AppCompatActivity() {
@@ -21,6 +19,17 @@ class CriarProva : AppCompatActivity() {
         criarProva()
     }
 
+    private fun criarProva() {
+        val config = ConfigProvaService()
+        config.identificacaoProva = "Jota Jota"
+        config.nomeDaTurma = "Leonam"
+        config.qntDeQuestoes = "5"
+        config.qntAlternativas = "5"
+        CriacaoDePdf.criaPdf(config,this)
+        Toast.makeText(this, "Prova Criada com sucesso", Toast.LENGTH_SHORT).show()
+    }
+
+    /*
     private fun criarProva() {
         binding.botaoCriarProva.setOnClickListener {
             val qntdDeCorretasDigitadas =
@@ -42,7 +51,7 @@ class CriarProva : AppCompatActivity() {
                 configs.nomeDaTurma = binding.txtTurma.text.toString()
                 configs.identificacaoProva = binding.identificacaoCriarProva.text.toString()
                 try {
-                    CriacaoDePdf(configs).criaPdf(this)
+                    CriacaoDePdf.criaPdf(configs)
                     SalvaProvasService().salvaProvas(this, configs)
                     Toast.makeText(this, "Prova Criada com sucesso", Toast.LENGTH_SHORT).show()
                 } catch (ex: Exception) {
@@ -50,6 +59,6 @@ class CriarProva : AppCompatActivity() {
                     Toast.makeText(this, "Deu Muita MERDA!!!!!", Toast.LENGTH_SHORT).show()
                 }
             }
+
+     */
         }
-    }
-}

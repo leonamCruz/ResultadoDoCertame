@@ -44,67 +44,40 @@
         android:inputType="numberSigned"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/txtQntDeQuestao"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/txtQntDeQuestao"
         app:layout_constraintTop_toBottomOf="@+id/txtQntDeQuestao"
-        app:layout_constraintVertical_bias="0.024" />
-
-    <CheckBox
-        android:id="@+id/checkIndividual"
-        android:layout_width="wrap_content"
-        android:layout_height="48sp"
-        android:textSize="15.5sp"
-        android:text="@string/provas_com_nomes_individuais"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/txtQntDeAlternativas"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/txtQntDeAlternativas"
-        app:layout_constraintTop_toBottomOf="@+id/txtQntDeAlternativas"
-        app:layout_constraintVertical_bias="0.034" />
+        app:layout_constraintVertical_bias="0.046" />
 
     <EditText
         android:id="@+id/txtTurma"
         android:layout_width="wrap_content"
         android:layout_height="48sp"
         android:autofillHints=""
-        android:ems="8"
+        android:ems="12"
         android:enabled="true"
         android:hint="@string/nome_da_turma_"
         android:inputType="textCapSentences"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/checkIndividual"
+        app:layout_constraintEnd_toEndOf="@+id/identificacaoCriarProva"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/checkIndividual"
-        app:layout_constraintTop_toBottomOf="@+id/checkIndividual"
-        app:layout_constraintVertical_bias="0.196" />
-
-    <ImageView
-        android:id="@+id/checked"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/txtTurma"
-        app:layout_constraintEnd_toEndOf="@+id/checkIndividual"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/txtTurma"
-        app:layout_constraintTop_toBottomOf="@+id/checkIndividual"
-        app:layout_constraintVertical_bias="1.0"
-        android:visibility="invisible"
-        app:srcCompat="@drawable/checked"
-        android:contentDescription="@string/vazio" />
+        app:layout_constraintStart_toStartOf="@+id/identificacaoCriarProva"
+        app:layout_constraintTop_toBottomOf="@+id/seuNome"
+        app:layout_constraintVertical_bias="0.211" />
 
     <MultiAutoCompleteTextView
         android:id="@+id/txtQuestoesCorretas"
         android:layout_width="wrap_content"
-        android:layout_height="175sp"
+        android:layout_height="170sp"
         android:ems="12"
+        android:gravity="start|top"
         android:hint="@string/insira_as_alternativas_corretas_em_ordem_crescente_e_separadas_por_v_rgula"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/checked"
-        app:layout_constraintHorizontal_bias="1.0"
-        android:gravity="start|top"
+        app:layout_constraintEnd_toEndOf="@+id/txtTurma"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/txtTurma"
         app:layout_constraintTop_toBottomOf="@+id/txtTurma"
-        app:layout_constraintVertical_bias="0.054" />
+        app:layout_constraintVertical_bias="0.078" />
 
     <Button
         android:id="@+id/botaoCriarProva"
@@ -124,14 +97,29 @@
         android:layout_height="48sp"
         android:ems="12"
         android:hint="@string/identifica_o_da_prova"
-        app:layout_constraintBottom_toTopOf="@+id/txtTurma"
-        app:layout_constraintEnd_toEndOf="@+id/checkIndividual"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="@+id/checkIndividual"
-        app:layout_constraintTop_toBottomOf="@+id/checkIndividual"
-        app:layout_constraintVertical_bias="0.464"
         android:importantForAutofill="no"
-        android:inputType="textAutoComplete" />
+        android:inputType="textAutoComplete"
+        app:layout_constraintBottom_toTopOf="@+id/txtTurma"
+        app:layout_constraintEnd_toEndOf="@+id/seuNome"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/seuNome"
+        app:layout_constraintTop_toBottomOf="@+id/seuNome"
+        app:layout_constraintVertical_bias="0.518" />
+
+    <EditText
+        android:id="@+id/seuNome"
+        android:layout_width="wrap_content"
+        android:layout_height="48sp"
+        android:ems="12"
+        android:hint="@string/seu_nome"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/txtQntDeAlternativas"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/txtQntDeAlternativas"
+        app:layout_constraintTop_toBottomOf="@+id/txtQntDeAlternativas"
+        app:layout_constraintVertical_bias="0.028" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
