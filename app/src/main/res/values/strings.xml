@@ -37,5 +37,6 @@
     <string name="sobre">Sobre</string>
     <string name="nomes">Nomes</string>
     <string name="seu_nome">Seu nome</string>
-    <string name="quest_es_com_mais_de_uma_alternativa_marcada_ser_o_anulada">Questões com mais de uma alternativa marcada serão anuladas.</string>
+    <string name="quest_es_com_mais_de_uma_alternativa_marcada_ser_o_anulada">Não marque mais de uma alternativa e uma questão.</string>
+    <string name="verifique_os_campos">Verifique os campos</string>
 </resources>

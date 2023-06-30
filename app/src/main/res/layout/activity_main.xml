@@ -23,7 +23,7 @@
 
             <androidx.cardview.widget.CardView
                 android:layout_marginEnd="8sp"
-                android:backgroundTint="@color/quasePreto"
+                android:backgroundTint="@color/purple_500"
                 app:cardCornerRadius="25sp">
 
                 <ImageView
@@ -48,7 +48,8 @@
 
             <androidx.cardview.widget.CardView
                 android:layout_marginStart="8sp"
-                android:backgroundTint="@color/quasePreto"
+                android:backgroundTint="@color/purple_500"
+
                 app:cardCornerRadius="25sp">
 
                 <ImageView
@@ -79,7 +80,8 @@
                 android:layout_marginTop="8sp"
                 android:layout_marginEnd="8sp"
                 android:layout_marginBottom="8sp"
-                android:backgroundTint="@color/quasePreto"
+                android:backgroundTint="@color/purple_500"
+
                 app:cardCornerRadius="25sp">
 
                 <ImageView
@@ -104,7 +106,8 @@
             <androidx.cardview.widget.CardView
                 android:layout_marginStart="8sp"
                 android:layout_marginTop="8sp"
-                android:backgroundTint="@color/quasePreto"
+                android:backgroundTint="@color/purple_500"
+
                 app:cardCornerRadius="25sp">
 
                 <ImageView
@@ -130,7 +133,7 @@
         <androidx.cardview.widget.CardView
             android:layout_marginStart="8sp"
             android:layout_marginTop="8sp"
-            android:backgroundTint="@color/quasePreto"
+            android:backgroundTint="@color/purple_500"
             app:cardCornerRadius="25sp">
 
             <ImageView
@@ -140,7 +143,8 @@
                 android:layout_gravity="center"
                 android:contentDescription="@string/vazio"
                 android:padding="30sp"
-                app:srcCompat="@drawable/about" />
+                app:srcCompat="@drawable/about"
+                tools:ignore="ImageContrastCheck" />
 
             <TextView
                 android:layout_width="wrap_content"

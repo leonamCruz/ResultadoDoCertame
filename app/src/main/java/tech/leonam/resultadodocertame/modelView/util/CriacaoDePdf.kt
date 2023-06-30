@@ -49,7 +49,7 @@ object CriacaoDePdf {
 
         document.finishPage(page)
         val directory = context.getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS)
-        val nomeDoArquivo = "La vem desgraca.pdf"
+        val nomeDoArquivo = configs.nomeDaTurma + ".pdf"
         val arquivo = File(directory, nomeDoArquivo)
 
         try {
@@ -63,6 +63,7 @@ object CriacaoDePdf {
     }
 
     private fun desenharCabecalho(canvas: Canvas, configs: ConfigProvaService, context: Context) {
+        paintDoTexto.textSize = 12f
         canvas.drawText("Professor(a): " + configs.nomeDoProf, 85f, 85f, paintDoTexto)
         canvas.drawText(configs.identificacaoProva, 85f, 85f + espacamento, paintDoTexto)
         canvas.drawText(
@@ -75,10 +76,10 @@ object CriacaoDePdf {
 
     private fun desenhar(canvas: Canvas, configs: ConfigProvaService) {
         var offsetX = posicaoX
-        var offsetY = posicaoY + (espacamentoDasBolas * 12)
+        var offsetY = posicaoY + (espacamentoDasBolas * 12) + 0.75f
 
         for (k in 1..configs.qntDeQuestoes.toInt()) {
-            paintDoTexto.textSize = 12f
+            paintDoTexto.textSize = 11f
             canvas.drawText(String.format("%02d - ", k), offsetX, offsetY, paintDoTexto)
             for (j in 1..configs.qntAlternativas.toInt()) {
                 offsetX += imagemWidth + espacamentoDasBolas
