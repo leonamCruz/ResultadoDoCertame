@@ -5,6 +5,7 @@ import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
+import android.graphics.RectF
 import android.graphics.pdf.PdfDocument
 import android.os.Environment
 import tech.leonam.resultadodocertame.R
@@ -37,6 +38,11 @@ object CriacaoDePdf {
         color = Color.BLACK
         textSize = tamanhoDaFont
     }
+    private val paintDosQuadrados: Paint = Paint().apply {
+        color = Color.BLACK
+        isAntiAlias = true
+        isDither = true
+    }
 
     @SuppressLint("DiscouragedApi")
     fun criaPdf(configs: ConfigProvaService, context: Context) {
@@ -44,6 +50,7 @@ object CriacaoDePdf {
         val pageInfo = PdfDocument.PageInfo.Builder(largura, altura, qntdDePaginas).create()
         val page = document.startPage(pageInfo)
         val canvas = page.canvas
+        desenharQuadradosDosCantos(canvas)
         desenharCabecalho(canvas, configs, context)
         desenhar(canvas, configs)
 
@@ -60,6 +67,10 @@ object CriacaoDePdf {
         } catch (e: IOException) {
             e.printStackTrace()
         }
+    }
+
+    private fun desenharQuadradosDosCantos(canvas: Canvas) {
+        val rect = RectF(20f,20f,20f,20f)
     }
 
     private fun desenharCabecalho(canvas: Canvas, configs: ConfigProvaService, context: Context) {
@@ -84,9 +95,9 @@ object CriacaoDePdf {
             for (j in 1..configs.qntAlternativas.toInt()) {
                 offsetX += imagemWidth + espacamentoDasBolas
                 canvas.drawCircle(offsetX + 20f, offsetY - 5f, 5f, paintDasBolas)
-                val letraDaVez = 'A'  + j - 1
+                val letraDaVez = 'A' + j - 1
                 paintDoTexto.textSize = 5f
-                canvas.drawText(letraDaVez.toString(),offsetX + 18.3f, offsetY - 3f , paintDoTexto)
+                canvas.drawText(letraDaVez.toString(), offsetX + 18.3f, offsetY - 3f, paintDoTexto)
             }
             offsetX = posicaoX
             offsetY += imagemHeight + espacamentoDasBolas
