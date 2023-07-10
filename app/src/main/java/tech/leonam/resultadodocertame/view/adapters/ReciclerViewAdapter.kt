@@ -20,7 +20,7 @@ class ReciclerViewAdapter(
 
     override fun onBindViewHolder(holder: ReciclerView, position: Int) {
 
-        if (turmas!!.size > 1) {
+        if (turmas!!.size > 0) {
             val turma = turmas[position]
             holder.binding.nomeTurmaReciclavel.text = turma!!.nomeDaTurma
             holder.binding.qntdDeAlunosReciclavel.text = turmas[position]!!.turma.size.toString()
@@ -33,7 +33,7 @@ class ReciclerViewAdapter(
     }
 
     override fun getItemCount(): Int {
-        return if (turmas!!.size < 1) 1 else turmas.size
+        return if (turmas!!.size < 1) 0 else turmas.size
     }
 
     private fun clickInView(turma: TurmaEntidade, holder: ReciclerView) {
